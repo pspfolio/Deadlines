@@ -1,0 +1,16 @@
+.flex-container-site {
+  margin: 100px auto 0 auto;
+  display: flex;
+  max-width: 1300px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+  border-bottom: 1px solid #ececec;
+  font-family: 'Roboto', sans-serif;
+}
+
+.site-header {
+  font-weight: 300;
+  font-size: 36px;
+  color: #5C5C5C;
+}
