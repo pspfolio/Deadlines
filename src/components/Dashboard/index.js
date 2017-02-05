@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../Nav';
 import Table from '../Table';
+import Add from '../Add';
 import './dashboard.css';
 
 export default class dlDashboard extends Component {
@@ -10,6 +11,7 @@ export default class dlDashboard extends Component {
         <Nav />
         <section className='flex-container-site'>
           <h2 className='site-header'>Deadlines</h2>
+          <Add />
         </section>
         <Table />
       </section>
