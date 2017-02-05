@@ -25,7 +25,7 @@ export default class Add extends Component {
         <div className='add-button' onClick={this.handleClick}>
           +
         </div>
-          { this.state.showForm ? <AddForm /> : null }
+          { this.state.showForm ? <AddForm handleAddDeadline={ this.props.handleAddDeadline } /> : null }
       </div>
     )
   }

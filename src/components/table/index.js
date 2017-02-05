@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DeadlineRow from '../DeadlineRow';
 import './table.css';
 
 export default class Table extends Component {
@@ -15,34 +16,9 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Oma talous</td>
-              <td>Ovenia</td>
-              <td>28.02.2017</td>
-              <td>24 days to go</td>
-              <td>Ok</td>
-            </tr>
-            <tr>
-              <td>Oma talous</td>
-              <td>Ovenia</td>
-              <td>28.02.2017</td>
-              <td>24 days to go</td>
-              <td>Ok</td>
-            </tr>
-            <tr>
-              <td>Oma talous</td>
-              <td>Ovenia</td>
-              <td>28.02.2017</td>
-              <td>24 days to go</td>
-              <td>Ok</td>
-            </tr>
-            <tr>
-              <td>Oma talous</td>
-              <td>Ovenia</td>
-              <td>28.02.2017</td>
-              <td>24 days to go</td>
-              <td>Ok</td>
-            </tr>
+            {this.props.deadlines.map((deadline) =>
+              <DeadlineRow deadline={deadline} />
+            )}
           </tbody>
         </table>
       </div>

@@ -8,7 +8,7 @@ export default class Add extends Component {
     this.state = {
       name: '',
       customer: '',
-      deadline: ''
+      date: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,11 +26,16 @@ export default class Add extends Component {
 
   handleAddClick(event) {
     event.preventDefault();
-
+    this.props.handleAddDeadline(this.state);
+    this.setState({
+      name: '',
+      customer: '',
+      date: ''
+    })
   }
 
   render() {
-    const buttonDisabled = !this.state.name || !this.state.customer || !this.state.deadline;
+    const buttonDisabled = !this.state.name || !this.state.customer || !this.state.date;
     return(
         <div className='add-form'>
           <form>
@@ -55,10 +60,10 @@ export default class Add extends Component {
             <label className='form-input'>
             Deadline
             <input
-              name='deadline'
+              name='date'
               type='text'
-              placeholder='Deadline'
-              value={ this.state.deadline }
+              placeholder='date'
+              value={ this.state.date }
               onChange={ this.handleInputChange } />
             </label>
             <button className='add-btn' disabled={ buttonDisabled } onClick={ this.handleAddClick }>Add</button>
