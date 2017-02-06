@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../Nav';
-import Table from '../Table';
+import DeadlineTable from '../DeadlineTable';
 import Add from '../Add';
 import './dashboard.css';
 
@@ -40,7 +40,7 @@ export default class dlDashboard extends Component {
           <h2 className='site-header'>Deadlines</h2>
           <Add handleAddDeadline={ this.handleAddDeadline }/>
         </section>
-        <Table deadlines={ this.state.deadlines }/>
+        <DeadlineTable deadlines={ this.state.deadlines }/>
       </section>
 
     )

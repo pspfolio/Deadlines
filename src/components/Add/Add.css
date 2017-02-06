@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .add-button {
   display: flex;
   width: 50px;
