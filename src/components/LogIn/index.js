@@ -1,7 +1,34 @@
 import React, { Component } from 'react';
+import TextInput from '../TextInput';
 import './login.css';
 
 export default class LogIn extends Component {
+  constructor(props) {
+      super(props);
+
+      this.state = {
+        username: '',
+        password: ''
+      }
+
+      this.handleInputChange = this.handleInputChange.bind(this);
+      this.handleLogIn = this.handleLogIn.bind(this);
+  }
+
+  handleInputChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+
+    console.log(this.state)
+  }
+
+  handleLogIn() {
+
+  }
+
   render() {
     return(
       <section className='login-container'>
@@ -13,23 +40,27 @@ export default class LogIn extends Component {
           <form>
             <div className='login-input'>
               <label className='login-form-label' htmlFor='username'>Username</label>
-              <input
-                className='login-form-input'
-                id='username'
+              <TextInput
+                placeholder='Jack Bauer'
+                name='username'
+                cssClass='login-form-input'
+                onChange={ this.handleInputChange }
                 type='text'
-                placeholder='Jack Bauer' />
+                required={ true } />
             </div>
             <div className='login-input'>
               <label className='login-form-label' htmlFor='password'>Password</label>
-              <input
-                className='login-form-input'
-                id='password'
+              <TextInput
+                name='password'
+                cssClass='login-form-input'
                 type='password'
-                placeholder='Enter your password' />
+                onChange={ this.handleInputChange }
+                placeholder='Enter your password'
+                required={ true } />
             </div>
           </form>
         </div>
-        <button className='login-btn'>Login</button>
+        <button onClick={ this.handleLogIn } className='login-btn'>Login</button>
       </section>
     )
   }
