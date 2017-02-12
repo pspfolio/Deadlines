@@ -28,7 +28,6 @@ export default class TextInput extends Component {
     let errorVisible = false;
     let errorMessage = '';
 
-    console.log(this.props.required);
     if(this.props.required && !value) {
       valid = false;
       errorVisible = true;

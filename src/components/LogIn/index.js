@@ -21,19 +21,20 @@ export default class LogIn extends Component {
     this.setState({
       [name]: value
     });
-
-    console.log(this.state)
   }
 
-  handleLogIn() {
-
+  handleLogIn(e) {
+    e.preventDefault();
+    this.props.handleLogin(this.state.username, this.state.password);
   }
 
   render() {
+    const buttonDisabled = !this.state.username || !this.state.password;
+    console.log(buttonDisabled)
     return(
       <section className='login-container'>
         <section className='login-text'>
-          <h1 className='text'>Log in to Deadlines.io</h1>
+          <h1 className='text'>Log in to <span className='deadlines'>Deadlines.io</span></h1>
           <p className='text'>Enter your details below</p>
         </section>
         <div className='login-form'>
@@ -60,7 +61,7 @@ export default class LogIn extends Component {
             </div>
           </form>
         </div>
-        <button onClick={ this.handleLogIn } className='login-btn'>Login</button>
+        <button onClick={ this.handleLogIn } disabled={ buttonDisabled } className='login-btn'>Login</button>
       </section>
     )
   }

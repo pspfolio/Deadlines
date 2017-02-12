@@ -1,3 +1,7 @@
+.deadlines {
+  color: #00DEAD;
+}
+
 .login-container {
   height: 100vh;
   width: 100vw;
@@ -40,6 +44,7 @@
 }
 
 .login-btn {
+  cursor: pointer;
   display: inline-block;
   margin: 20px auto;
   background: #00DEAD;
@@ -51,4 +56,8 @@
   padding: 0 60px;
   outline: 0;
   border: none;
+}
+
+.login-btn:disabled {
+  background-color: grey;
 }
