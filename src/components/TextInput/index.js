@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ErrorMessage from '../InputErrorMessage/'
+import './textinput.css';
 
 export default class TextInput extends Component {
   constructor(props) {
@@ -44,10 +46,11 @@ export default class TextInput extends Component {
   render() {
     return(
       <div className={ this.props.name }>
+        { this.state.errorVisible ? <ErrorMessage errorMessage={this.state.errorMessage} /> : null }
         <input
           name={ this.props.name }
           placeholder={ this.props.placeholder }
-          className={ this.props.cssClass }
+          className={ this.state.errorVisible ? 'login-form-input input-error' : 'login-form-input' }
           onChange={ this.handleInputChange }
           type={ this.props.type }
           value={ this.state.value } />

@@ -1,0 +1,15 @@
+.login-form-input {
+  width: 100%;
+  border: 1px solid #D4D9E2;
+  border-radius: 5px;
+  height: 30px;
+  padding: 10px;
+  font-size: 14px;
+  color: #596377;
+  outline: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.input-error {
+  border: 1px solid #E73737;
+}

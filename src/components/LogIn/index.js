@@ -41,9 +41,9 @@ export default class LogIn extends Component {
             <div className='login-input'>
               <label className='login-form-label' htmlFor='username'>Username</label>
               <TextInput
+                errorMessage='username is required'
                 placeholder='Jack Bauer'
                 name='username'
-                cssClass='login-form-input'
                 onChange={ this.handleInputChange }
                 type='text'
                 required={ true } />
@@ -51,8 +51,8 @@ export default class LogIn extends Component {
             <div className='login-input'>
               <label className='login-form-label' htmlFor='password'>Password</label>
               <TextInput
+                errorMessage='password is required'
                 name='password'
-                cssClass='login-form-input'
                 type='password'
                 onChange={ this.handleInputChange }
                 placeholder='Enter your password'
