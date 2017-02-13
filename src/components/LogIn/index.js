@@ -30,7 +30,6 @@ export default class LogIn extends Component {
 
   render() {
     const buttonDisabled = !this.state.username || !this.state.password;
-    console.log(buttonDisabled)
     return(
       <section className='login-container'>
         <section className='login-text'>
