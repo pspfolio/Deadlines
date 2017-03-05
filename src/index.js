@@ -12,9 +12,9 @@ ReactDOM.render(
   <Router history={ browserHistory }>
     <Route path='/' component={ App }>
       <IndexRoute component={ Dashboard } />
+        <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
+        <Route path='/login' component={ Login } />
     </Route>
-    <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
-    <Route path='/login' component={ Login } />
   </Router>
   ),
  document.getElementById('root')

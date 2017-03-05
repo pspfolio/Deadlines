@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import userPic from './user_pic.png';
+import { isLoggedIn } from '../../utils/AuthService.js';
 import './nav.css';
 
 export default class dlNav extends Component {
@@ -8,7 +9,7 @@ export default class dlNav extends Component {
       <nav className='app-header'>
         <div className='flex-container'>
           <h1>Deadlines.io</h1>
-          <img alt='user' src={userPic} />
+          { isLoggedIn() ? <img alt='user' src={userPic} /> : null }
         </div>
       </nav>
     )

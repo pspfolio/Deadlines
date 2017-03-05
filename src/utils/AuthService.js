@@ -1,7 +1,15 @@
-
+import { browserHistory } from 'react-router';
+const ID_TOKEN = 'id_token';
 
 export function handleLogin(username, password) {
   setToken("eyJhbGciOiJIUzI1NiIsI.eyJpc3MiOiJodHRwczotcGxlL.mFrs3Zo8eaSNcxiNfvRh9dqKP4F1cB");
+  browserHistory.replace('/dashboard');
+}
+
+export function requireAuth() {
+  if(!isLoggedIn()) {
+    browserHistory.replace({pathname: '/login'});
+  }
 }
 
 export function isLoggedIn() {
@@ -14,10 +22,14 @@ export function logout() {
   browserHistory.replace('/');
 }
 
-function setToken(token) {
-  localStorage.setItem('id_token', token);
+export function getIdToken() {
+  return localStorage.getItem(ID_TOKEN);
 }
 
-export function getIdToken() {
-  return localStorage.getItem('id_token');
+function setToken(token) {
+  localStorage.setItem(ID_TOKEN, token);
+}
+
+function clearIdToken() {
+  localStorage.removeItem(ID_TOKEN);
 }
