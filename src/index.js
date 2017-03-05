@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
 import Dashboard from './components/Dashboard';
+import Login from './components/LogIn';
+import { requireAuth } from './utils/AuthService';
 import './index.css';
-
 
 ReactDOM.render(
  (
@@ -12,6 +13,8 @@ ReactDOM.render(
     <Route path='/' component={ App }>
       <IndexRoute component={ Dashboard } />
     </Route>
+    <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
+    <Route path='/login' component={ Login } />
   </Router>
   ),
  document.getElementById('root')

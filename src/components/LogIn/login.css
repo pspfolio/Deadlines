@@ -1,0 +1,63 @@
+.deadlines {
+  color: #00DEAD;
+}
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-container .text {
+  font-weight: 300;
+  color: #5C5C5C;
+  text-align: left;
+}
+
+.login-container h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.login-form {
+  width: 25%;
+}
+
+.login-text {
+  width: 25%;
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+.login-input {
+  margin-top: 1.5em;
+}
+
+.login-form-label {
+  font-weight: 300;
+  color: #5C5C5C;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  cursor: pointer;
+  display: inline-block;
+  margin: 20px auto;
+  background: #00DEAD;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0 60px;
+  outline: 0;
+  border: none;
+}
+
+.login-btn:disabled {
+  background-color: grey;
+}
