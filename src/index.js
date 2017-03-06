@@ -4,8 +4,10 @@ import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
 import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
-import { requireAuth } from './utils/AuthService';
+import { requireAuth, getPayload } from './utils/AuthService';
 import './index.css';
+
+getPayload();
 
 ReactDOM.render(
  (

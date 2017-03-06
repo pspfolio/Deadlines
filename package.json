@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "jwt-decode": "^2.1.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
