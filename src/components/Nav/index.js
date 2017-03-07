@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import userPic from './user_pic.png';
-import { isLoggedIn } from '../../utils/AuthService.js';
+import { isAuthenticated } from '../../utils/AuthService.js';
+import NavProfile from '../NavProfile';
 import './nav.css';
+
 
 export default class dlNav extends Component {
   render() {
-    return (
+    return(
       <nav className='app-header'>
         <div className='flex-container'>
           <h1>Deadlines.io</h1>
-          { isLoggedIn() ? <img alt='user' src={userPic} /> : null }
+          { isAuthenticated() ? <NavProfile /> : null }
         </div>
       </nav>
     )

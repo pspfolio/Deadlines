@@ -1,5 +1,4 @@
 import { browserHistory } from 'react-router';
-import jwtDecode from 'jwt-decode';
 
 const ID_TOKEN = 'id_token';
 
@@ -8,14 +7,8 @@ export function handleLogin(username, password) {
   browserHistory.replace('/dashboard');
 }
 
-export function requireAuth() {
-  if(!isLoggedIn()) {
-    browserHistory.replace({ pathname: '/login' });
-  }
-}
-
-export function isLoggedIn() {
-  const idToken = getIdToken();
+export function isAuthenticated() {
+  const idToken = getToken();
   return !!idToken;
 }
 
@@ -24,19 +17,8 @@ export function logout() {
   browserHistory.replace('/');
 }
 
-export function getIdToken() {
+export function getToken() {
   return localStorage.getItem(ID_TOKEN);
-}
-
-export function getPayload() {
-  console.log("GETPAYLOAD IS LOGGED IN: ");
-  if(isLoggedIn()) {
-    var payload = jwtDecode(getIdToken());
-    console.log("payload", payload)
-    return payload;
-  }
-
-  return  {};
 }
 
 function setToken(token) {

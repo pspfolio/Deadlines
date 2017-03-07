@@ -16,7 +16,7 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.deadlines.map((deadline, key) =>
+            { this.props.deadlines.map((deadline, key) =>
               <DeadlineRow deadline={deadline} key={key} />
             )}
           </tbody>

@@ -4,8 +4,14 @@ import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
 import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
-import { requireAuth } from './utils/AuthService';
+import { isAuthenticated } from './utils/AuthService';
 import './index.css';
+
+function requireAuth(nextState, replace) {
+  if(!isAuthenticated()) {
+    replace({ pathname: '/login' })
+  }
+}
 
 ReactDOM.render(
  (
