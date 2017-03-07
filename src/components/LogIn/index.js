@@ -26,7 +26,6 @@ export default class LogIn extends Component {
 
   handleLogIn(e) {
     e.preventDefault();
-    console.log(handleLogin);
     handleLogin(this.state.username, this.state.password);
   }
 
