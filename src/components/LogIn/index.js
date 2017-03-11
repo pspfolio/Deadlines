@@ -48,9 +48,8 @@ export default class LogIn extends Component {
           <p className='text'>Enter your details below</p>
         </section>
         {
-          this.state.signUpError ? <p className='error'>The email address and/or password you entered was invalid. Please try again. </p> : null
+          this.state.signUpError ? <p className='error'>The email address and/or password you entered was invalid.</p> : null
         }
-
         <div className='login-form'>
           <form>
             <div className='login-input'>

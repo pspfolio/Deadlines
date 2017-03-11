@@ -1,6 +1,5 @@
 import { browserHistory } from 'react-router';
-const ID_TOKEN = 'id_token';
-const baseApiUrl = 'http://localhost:56542/api/';
+import { ID_TOKEN, baseApiUrl } from './constants';
 
 export function login(username, password) {
   return doLogin('auth/token', { username, password });
