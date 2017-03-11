@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextInput from '../TextInput';
-import { handleLogin } from '../../utils/AuthService.js';
+import { browserHistory } from 'react-router';
+import { login, setToken } from '../../utils/AuthService.js';
 import './login.css';
 
 export default class LogIn extends Component {
@@ -9,7 +10,8 @@ export default class LogIn extends Component {
 
       this.state = {
         username: '',
-        password: ''
+        password: '',
+        signUpError: false
       }
 
       this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,7 +28,15 @@ export default class LogIn extends Component {
 
   handleLogIn(e) {
     e.preventDefault();
-    handleLogin(this.state.username, this.state.password);
+    login(this.state.username, this.state.password).then(result => {
+      if(!result) {
+        this.setState({signUpError: true})
+      } else {
+        setToken(result.token);
+        browserHistory.push('/dashboard')
+      }
+
+    })
   }
 
   render() {
@@ -37,6 +47,10 @@ export default class LogIn extends Component {
           <h1 className='text'>Log in to <span className='deadlines'>Deadlines.io</span></h1>
           <p className='text'>Enter your details below</p>
         </section>
+        {
+          this.state.signUpError ? <p className='error'>The email address and/or password you entered was invalid. Please try again. </p> : null
+        }
+
         <div className='login-form'>
           <form>
             <div className='login-input'>
