@@ -23,18 +23,8 @@ export function setToken(token) {
   localStorage.setItem(ID_TOKEN, token);
 }
 
-function doLogin(endpoint, user) {
-  return handleFetch(`${baseApiUrl}${ endpoint }`, {
-    method: 'POST',
-    body: JSON.stringify(user)
-  })
-}
 
-function clearIdToken() {
-  localStorage.removeItem(ID_TOKEN);
-}
-
-function handleFetch(url, options) {
+export function handleFetch(url, options) {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -49,6 +39,15 @@ function handleFetch(url, options) {
       return response.json();
     }
   })
+}
 
+function doLogin(endpoint, user) {
+  return handleFetch(`${baseApiUrl}/${ endpoint }`, {
+    method: 'POST',
+    body: JSON.stringify(user)
+  })
+}
 
+function clearIdToken() {
+  localStorage.removeItem(ID_TOKEN);
 }

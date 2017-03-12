@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import DeadlineTable from '../DeadlineTable';
 import Add from '../Add';
+import { handleFetch } from '../../utils/AuthService';
+import { baseApiUrl } from '../../utils/constants';
+import moment from 'moment';
 import './dashboard.css';
 
 export default class dlDashboard extends Component {
@@ -8,27 +11,35 @@ export default class dlDashboard extends Component {
     super(props);
 
     this.state = {
-      deadlines: [
-        {
-          name: 'Oma talous',
-          customer: 'Ovenia',
-          date: '28.02.2017'
-        },
-        {
-          name: 'Oma talous',
-          customer: 'Ovenia',
-          date: '28.02.2017'
-        }
-      ]
+      deadlines: []
     }
 
     this.handleAddDeadline = this.handleAddDeadline.bind(this);
   }
 
+  componentDidMount() {
+    handleFetch(`${baseApiUrl}/project/list`).then((result) => {
+      console.log('result', result);
+      if(result.error) {
+        this.setState({error: true})
+      }
+
+      this.setState({deadlines: result});
+    })
+  }
+
   handleAddDeadline(deadline) {
-    this.setState(prevState => ({
-      deadlines: [...prevState.deadlines, deadline]
-    }));
+    deadline.priority = 1;
+    deadline.deadline = moment(deadline.deadline, "DD.MM.YYYY");
+    console.log(JSON.stringify(deadline));
+    handleFetch(`${baseApiUrl}/project`, {
+      method: 'POST',
+      body: JSON.stringify(deadline)
+    }).then((result) => {
+      if(result.error) {
+        this.setState({error: true})
+      }
+    })
   }
 
   render() {

@@ -8,7 +8,7 @@ export default class Add extends Component {
     this.state = {
       name: '',
       customer: '',
-      date: ''
+      deadline: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,12 +30,12 @@ export default class Add extends Component {
     this.setState({
       name: '',
       customer: '',
-      date: ''
+      deadline: ''
     })
   }
 
   render() {
-    const buttonDisabled = !this.state.name || !this.state.customer || !this.state.date;
+    const buttonDisabled = !this.state.name || !this.state.customer || !this.state.deadline;
     return(
         <div className='add-form'>
           <form>
@@ -60,10 +60,10 @@ export default class Add extends Component {
             <label className='form-input'>
             Deadline
             <input
-              name='date'
-              type='text'
+              name='deadline'
+              type='datetime'
               placeholder='date'
-              value={ this.state.date }
+              value={ this.state.deadline }
               onChange={ this.handleInputChange } />
             </label>
             <button className='add-btn' disabled={ buttonDisabled } onClick={ this.handleAddClick }>Add</button>
