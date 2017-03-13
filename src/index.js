@@ -8,6 +8,7 @@ import { isAuthenticated } from './utils/AuthService';
 import './index.css';
 
 function requireAuth(nextState, replace) {
+  console.log("is auth", !isAuthenticated())
   if(!isAuthenticated()) {
     replace({ pathname: '/login' })
   }

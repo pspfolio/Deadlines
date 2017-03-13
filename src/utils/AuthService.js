@@ -1,4 +1,5 @@
 import { browserHistory } from 'react-router';
+import { isTokenExpired } from './jwtHelper';
 import { ID_TOKEN, baseApiUrl } from './constants';
 
 export function login(username, password) {
@@ -6,8 +7,9 @@ export function login(username, password) {
 }
 
 export function isAuthenticated() {
-  const idToken = getToken();
-  return !!idToken;
+  var token = getToken();
+  console.log("onko token expired", isTokenExpired(token));
+  return token ? !isTokenExpired(token) : false;
 }
 
 export function logout() {
@@ -22,7 +24,6 @@ export function getToken() {
 export function setToken(token) {
   localStorage.setItem(ID_TOKEN, token);
 }
-
 
 export function handleFetch(url, options) {
   const headers = {
