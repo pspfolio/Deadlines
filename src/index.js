@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
+import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
 import Login from './components/LogIn';
 import { isAuthenticated } from './utils/AuthService';
@@ -18,7 +19,7 @@ ReactDOM.render(
  (
   <Router history={ browserHistory }>
     <Route path='/' component={ App }>
-      <IndexRoute component={ Dashboard } />
+      <IndexRoute component={ LandingPage } />
         <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
         <Route path='/login' component={ Login } />
     </Route>

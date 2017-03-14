@@ -6,7 +6,7 @@ export function isTokenExpired(token) {
   if(expirationDate == null) {
     return false;
   }
-  console.log(expirationDate)
+
   return !(expirationDate > new Date())
 }
 
