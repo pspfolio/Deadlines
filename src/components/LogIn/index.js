@@ -35,7 +35,6 @@ export default class LogIn extends Component {
         setToken(result.token);
         browserHistory.push('/dashboard')
       }
-
     })
   }
 

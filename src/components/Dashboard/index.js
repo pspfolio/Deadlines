@@ -31,7 +31,6 @@ export default class dlDashboard extends Component {
   handleAddDeadline(deadline) {
     deadline.priority = 1;
     deadline.deadline = moment(deadline.deadline, "DD.MM.YYYY");
-    console.log(JSON.stringify(deadline));
     handleFetch(`${baseApiUrl}/project`, {
       method: 'POST',
       body: JSON.stringify(deadline)
