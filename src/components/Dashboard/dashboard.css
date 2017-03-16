@@ -2,15 +2,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.flex-container-site {
-  margin: 100px auto 0 auto;
-  display: flex;
-  max-width: 1300px;
+.flex-container-dashboard {
+    margin: 100px auto 0 auto;
+    display: flex;
+    max-width: 1300px;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 100px;
+}
+
+.deadlines-list{
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
   border-bottom: 1px solid #ececec;
-  font-family: 'Roboto', sans-serif;
+}
+
+.not-found {
+  flex-direction: column;
+  align-items: center;
+}
+
+.throw-table {
+  font-size: 2.5em;
+  color: #5C5C5C;
 }
 
 .site-header {

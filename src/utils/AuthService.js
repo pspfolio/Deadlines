@@ -8,7 +8,6 @@ export function login(username, password) {
 
 export function isAuthenticated() {
   var token = getToken();
-  console.log("onko token expired", isTokenExpired(token));
   return token ? !isTokenExpired(token) : false;
 }
 

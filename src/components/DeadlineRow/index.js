@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-export default ({ deadline,  }) => (
+export default ({ deadline }) => (
   <tr>
     <td>{ deadline.name }</td>
     <td>{ deadline.customer }</td>

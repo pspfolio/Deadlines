@@ -7,8 +7,8 @@ import moment from 'moment';
 import './dashboard.css';
 
 export default class dlDashboard extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       deadlines: []
@@ -19,11 +19,9 @@ export default class dlDashboard extends Component {
 
   componentDidMount() {
     handleFetch(`${baseApiUrl}/project/list`).then((result) => {
-      console.log('result', result);
       if(result.error) {
         this.setState({error: true})
       }
-
       this.setState({deadlines: result});
     })
   }
@@ -44,11 +42,18 @@ export default class dlDashboard extends Component {
   render() {
     return (
       <section>
-        <section className='flex-container-site'>
+        <section className='flex-container-dashboard deadlines-list'>
           <h2 className='site-header'>Deadlines</h2>
           <Add handleAddDeadline={ this.handleAddDeadline }/>
         </section>
-        <DeadlineTable deadlines={ this.state.deadlines }/>
+        {this.state.deadlines.length > 0 ?
+          <DeadlineTable deadlines={ this.state.deadlines }/> :
+          <section className='flex-container-dashboard not-found'>
+            <p className='throw-table'>(╯°□°）╯︵ ┻━┻</p>
+            <h2 className='site-header'>No Deadlines!</h2>
+          </section>
+        }
+
       </section>
 
     )

@@ -9,7 +9,6 @@ import { isAuthenticated } from './utils/AuthService';
 import './index.css';
 
 function requireAuth(nextState, replace) {
-  console.log("is auth", !isAuthenticated())
   if(!isAuthenticated()) {
     replace({ pathname: '/login' })
   }
@@ -20,8 +19,8 @@ ReactDOM.render(
   <Router history={ browserHistory }>
     <Route path='/' component={ App }>
       <IndexRoute component={ LandingPage } />
-        <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
-        <Route path='/login' component={ Login } />
+      <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
+      <Route path='/login' component={ Login } />
     </Route>
   </Router>
   ),
