@@ -8,7 +8,8 @@ export default class Add extends Component {
     this.state = {
       name: '',
       customer: '',
-      deadline: ''
+      deadline: '',
+      priority: 1
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);

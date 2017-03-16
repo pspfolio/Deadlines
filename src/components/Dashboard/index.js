@@ -27,7 +27,6 @@ export default class dlDashboard extends Component {
   }
 
   handleAddDeadline(deadline) {
-    deadline.priority = 1;
     deadline.deadline = moment(deadline.deadline, "DD.MM.YYYY");
     handleFetch(`${baseApiUrl}/project`, {
       method: 'POST',
@@ -35,6 +34,12 @@ export default class dlDashboard extends Component {
     }).then((result) => {
       if(result.error) {
         this.setState({error: true})
+      } else {
+        this.setState((prevState) => {
+          var newState = prevState.deadlines;
+          newState.push(result);
+          return { deadlines: newState }
+        })
       }
     })
   }
@@ -46,16 +51,14 @@ export default class dlDashboard extends Component {
           <h2 className='site-header'>Deadlines</h2>
           <Add handleAddDeadline={ this.handleAddDeadline }/>
         </section>
-        {this.state.deadlines.length > 0 ?
+        {this.state.deadlines.length > 0 && !this.state.error ?
           <DeadlineTable deadlines={ this.state.deadlines }/> :
           <section className='flex-container-dashboard not-found'>
             <p className='throw-table'>(╯°□°）╯︵ ┻━┻</p>
             <h2 className='site-header'>No Deadlines!</h2>
           </section>
         }
-
       </section>
-
     )
   }
 }
