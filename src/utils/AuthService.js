@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { isTokenExpired } from './jwtHelper';
+import { isTokenExpired, getTokenExpirationDate } from './jwtHelper';
 import { ID_TOKEN, baseApiUrl } from './constants';
 
 export function login(username, password) {
@@ -7,7 +7,7 @@ export function login(username, password) {
 }
 
 export function isAuthenticated() {
-  var token = getToken();
+  const token = getToken();
   return token ? !isTokenExpired(token) : false;
 }
 
@@ -17,7 +17,12 @@ export function logout() {
 }
 
 export function getToken() {
-  return localStorage.getItem(ID_TOKEN);
+  const token = localStorage.getItem(ID_TOKEN);
+  if(shouldRefreshToken(token)) {
+    console.log("REFRESHTOKEN!");
+  }
+
+  return token;
 }
 
 export function setToken(token) {
@@ -39,6 +44,14 @@ export function handleFetch(url, options) {
       return response.json();
     }
   })
+}
+
+function shouldRefreshToken(token) {
+  const one_hour = 60 * 60 * 1000;
+  const expDate = getTokenExpirationDate(token);
+  const result = (new Date() - expDate) > one_hour;
+  console.log(result);
+  return (new Date() - expDate) > one_hour;
 }
 
 function doLogin(endpoint, user) {

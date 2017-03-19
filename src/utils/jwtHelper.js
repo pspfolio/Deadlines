@@ -10,7 +10,7 @@ export function isTokenExpired(token) {
   return !(expirationDate > new Date())
 }
 
-function getTokenExpirationDate(token) {
+export function getTokenExpirationDate(token) {
   const decodedToken = jwtDecode(token);
 
   if(!decodedToken.exp) {
