@@ -18,6 +18,7 @@ function getTokenExpirationDate(token) {
   }
 
   const date = new Date(0);
+  console.log('decodedexp', decodedToken.exp);
   date.setUTCSeconds(decodedToken.exp);
   return date;
 }
