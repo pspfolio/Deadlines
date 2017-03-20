@@ -1,6 +1,6 @@
 import { browserHistory } from 'react-router';
 import { isTokenExpired } from './jwtHelper';
-import { ID_TOKEN, baseApiUrl } from './constants';
+import { TOKEN, TOKEN_ADDED, baseApiUrl } from './constants';
 
 export function login(username, password) {
   return doLogin('auth/token', { username, password });
@@ -15,18 +15,19 @@ export function isAuthenticated() {
 }
 
 export function logout() {
-  clearIdToken();
+  clearLocalstorageById(TOKEN);
+  clearLocalstorageById(TOKEN_ADDED);
   browserHistory.replace('/');
 }
 
 export function getToken() {
-  let token = localStorage.getItem(ID_TOKEN);
+  let token = localStorage.getItem(TOKEN);
   return token;
 }
 
 export function setToken(token) {
-  localStorage.setItem(ID_TOKEN, token);
-  localStorage.setItem('token_added', Date.now());
+  localStorage.setItem(TOKEN, token);
+  localStorage.setItem(TOKEN_ADDED, Date.now());
 }
 
 export function handleFetch(url, options) {
@@ -47,7 +48,7 @@ export function handleFetch(url, options) {
 }
 
 function getTokenAdded() {
-  const result = localStorage.getItem('token_added');
+  const result = localStorage.getItem(TOKEN_ADDED);
   return result
 }
 
@@ -75,7 +76,6 @@ function doLogin(endpoint, user) {
   })
 }
 
-// TODO parametrinä id, jolla voidaan poistaa paskat
-function clearIdToken() {
-  localStorage.removeItem(ID_TOKEN);
+function clearLocalstorageById(ID) {
+  localStorage.removeItem(ID);
 }
