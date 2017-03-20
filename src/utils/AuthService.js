@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { isTokenExpired, getTokenExpirationDate } from './jwtHelper';
+import { isTokenExpired } from './jwtHelper';
 import { ID_TOKEN, baseApiUrl } from './constants';
 
 export function login(username, password) {
@@ -8,6 +8,9 @@ export function login(username, password) {
 
 export function isAuthenticated() {
   const token = getToken();
+  if(token && shouldRefreshToken()) {
+    refreshToken('auth/refresh')
+  }
   return token ? !isTokenExpired(token) : false;
 }
 
@@ -17,16 +20,13 @@ export function logout() {
 }
 
 export function getToken() {
-  const token = localStorage.getItem(ID_TOKEN);
-  if(shouldRefreshToken(token)) {
-    console.log("REFRESHTOKEN!");
-  }
-
+  let token = localStorage.getItem(ID_TOKEN);
   return token;
 }
 
 export function setToken(token) {
   localStorage.setItem(ID_TOKEN, token);
+  localStorage.setItem('token_added', Date.now());
 }
 
 export function handleFetch(url, options) {
@@ -35,7 +35,7 @@ export function handleFetch(url, options) {
     'Content-Type': 'application/json'
   }
 
-  if(isAuthenticated()) {
+  if(getToken()) {
     headers['Authorization'] = `Bearer ${getToken()}`
   }
 
@@ -46,12 +46,26 @@ export function handleFetch(url, options) {
   })
 }
 
-function shouldRefreshToken(token) {
+function getTokenAdded() {
+  const result = localStorage.getItem('token_added');
+  return result
+}
+
+function shouldRefreshToken() {
   const one_hour = 60 * 60 * 1000;
-  const expDate = getTokenExpirationDate(token);
-  const result = (new Date() - expDate) > one_hour;
-  console.log(result);
-  return (new Date() - expDate) > one_hour;
+  const added = getTokenAdded();
+
+  if(!added) {
+    return false;
+  } 
+  return (Date.now() - added) > one_hour;
+}
+
+function refreshToken(endpoint) {
+  console.log("refreshing now!!!!")
+  handleFetch(`${baseApiUrl}/${endpoint}`).then((result) => {
+    setToken(result.token);
+  })
 }
 
 function doLogin(endpoint, user) {
@@ -61,6 +75,7 @@ function doLogin(endpoint, user) {
   })
 }
 
+// TODO parametrinä id, jolla voidaan poistaa paskat
 function clearIdToken() {
   localStorage.removeItem(ID_TOKEN);
 }
