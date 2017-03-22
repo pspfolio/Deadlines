@@ -7,9 +7,20 @@ export default class Deadline extends Component {
         super(props);
 
         this.state = {
-            project: {},
+            id: '',
+            name: '',
+            customer: '',
+            addedTS: '',
+            closedTS: '',
+            deadline: '',
+            priority: 1,
+            closed: false,
+            comments: [],
             fetching: false
         }
+
+
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
     
     componentDidMount() {
@@ -22,10 +33,22 @@ export default class Deadline extends Component {
             })
     }
 
+    handleInputChange(event) {
+        console.log(event);
+        const value = event.target.value;
+        const name = event.target.name;
+        
+        this.setState({
+            [name]: value
+        });
+    }
+
     render() {
         return (
+            
             <div>
-                <section>
+                {
+                    this.state.project ? <section>
                     <h1>Project info</h1> 
 
                     <p>Project information</p>
@@ -41,8 +64,13 @@ export default class Deadline extends Component {
                     </div>
 
                     <div>
-                        <label>Deadline</label>
-                        <p>{moment(this.state.project.deadline).format("DD.MM.YYYY")}</p>
+                        <label htmlFor='deadline'>Deadline</label>
+                        <input 
+                            name='deadline'
+                            id='deadline'
+                            type='text'
+                            value={ this.state.project.deadline } 
+                            onChange={ this.handleInputChange } />
                     </div>
 
                     <div>
@@ -54,11 +82,17 @@ export default class Deadline extends Component {
                         <label>Project added</label>
                         <p>{moment(this.state.project.addedTS).format("DD.MM.YYYY")}</p>
                     </div>
-                </section>
-                <section>
 
+                    <div>
+                        <label>Status</label>
+                        <p>{this.state.project.closedTS}</p>
+                    </div>
                 </section>
-            </div>
+             : null
+                    
+                    }
+                    </div>
+                
         )
     }
 }
