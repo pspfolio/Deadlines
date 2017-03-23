@@ -28,8 +28,18 @@ export default class Deadline extends Component {
 
         handleFetch(`http://localhost:5000/api/project/${this.props.params.id}`)
             .then((result) => {
-                console.log(result)
-                this.setState({ project: result })
+                console.log(result);
+                const {id, name, customer, addedTS, closedTS, deadline, priority, closed} = result;
+                this.setState({ 
+                    id: id,
+                    name: name,
+                    customer,
+                    addedTS,
+                    closedTS,
+                    deadline,
+                    priority,
+                    closed
+                })
             })
     }
 
@@ -48,19 +58,24 @@ export default class Deadline extends Component {
             
             <div>
                 {
-                    this.state.project ? <section>
+                     <section>
                     <h1>Project info</h1> 
 
                     <p>Project information</p>
 
                     <div>
                         <label>Project name</label>
-                        <p>{this.state.project.name}</p>
+                         <input 
+                            name='name'
+                            id='name'
+                            type='text'
+                            value={ this.state.name } 
+                            onChange={ this.handleInputChange } />
                     </div>
 
                     <div>
                         <label>Customer</label>
-                        <p>{this.state.project.customer}</p>
+                        <p>{this.state.customer}</p>
                     </div>
 
                     <div>
@@ -69,26 +84,26 @@ export default class Deadline extends Component {
                             name='deadline'
                             id='deadline'
                             type='text'
-                            value={ this.state.project.deadline } 
+                            value={ this.state.deadline } 
                             onChange={ this.handleInputChange } />
                     </div>
 
                     <div>
                         <label>Deadline from now</label>
-                        <p>{moment(this.state.project.deadline).fromNow()}</p>
+                        <p>{moment(this.state.deadline).fromNow()}</p>
                     </div>
 
                     <div>
                         <label>Project added</label>
-                        <p>{moment(this.state.project.addedTS).format("DD.MM.YYYY")}</p>
+                        <p>{moment(this.state.addedTS).format("DD.MM.YYYY")}</p>
                     </div>
 
                     <div>
                         <label>Status</label>
-                        <p>{this.state.project.closedTS}</p>
+                        <p>{this.state.closedTS}</p>
                     </div>
                 </section>
-             : null
+
                     
                     }
                     </div>
