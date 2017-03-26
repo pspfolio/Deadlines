@@ -6,11 +6,11 @@ export default class TextInput extends Component {
   constructor(props) {
     super(props);
 
+    console.log("PROPS", this.props)
     this.state = {
       valid: false,
       errorVisible: false,
-      errorText: 'Required field',
-      value: ''
+      errorText: 'Required field'
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -53,7 +53,7 @@ export default class TextInput extends Component {
           className={ this.state.errorVisible ? 'text-input input-error' : 'text-input' }
           onChange={ this.handleInputChange }
           type={ this.props.type }
-          value={ this.state.value } />
+          value={ this.props.value } />
       </div>
     )
   }
