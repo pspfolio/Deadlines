@@ -49,26 +49,22 @@ export default class LogIn extends Component {
         { this.state.signUpError ? <p className='error'>The email address and/or password you entered was invalid.</p> : null }
         <div className='login-form'>
           <form>
-            <div className='login-input'>
-              <label className='login-form-label' htmlFor='username'>Username</label>
-              <TextInput
+            <TextInput
+                label='Username'
                 errorMessage='username is required'
                 placeholder='Jack Bauer'
                 name='username'
                 onChange={ this.handleInputChange }
                 type='text'
                 required={ true } />
-            </div>
-            <div className='login-input'>
-              <label className='login-form-label' htmlFor='password'>Password</label>
               <TextInput
+                label='Password'
                 errorMessage='password is required'
                 name='password'
                 type='password'
                 onChange={ this.handleInputChange }
                 placeholder='Enter your password'
                 required={ true } />
-            </div>
           </form>
         </div>
         <button onClick={ this.handleLogIn } disabled={ buttonDisabled } className='login-btn'>Login</button>

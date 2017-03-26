@@ -1,4 +1,8 @@
-.login-form-input {
+.text-input-wrapper {
+  margin-top: 1.5em;
+}
+
+.text-input {
   width: 100%;
   border: 1px solid #D4D9E2;
   border-radius: 5px;
@@ -8,6 +12,17 @@
   color: #596377;
   outline: 0;
   -webkit-font-smoothing: antialiased;
+}
+
+.text-input-label {
+  font-weight: 300;
+  color: #5C5C5C;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-input {
+  margin-top: 1.5em;
 }
 
 .input-error {

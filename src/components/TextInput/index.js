@@ -41,15 +41,16 @@ export default class TextInput extends Component {
       errorMessage
     });
   }
-
+  
   render() {
     return(
-      <div className={ this.props.name }>
+      <div className='text-input-wrapper'> 
         { this.state.errorVisible ? <ErrorMessage errorMessage={this.state.errorMessage} /> : null }
+        <label className='text-input-label' htmlFor={this.props.name}>{this.props.label}</label>
         <input
           name={ this.props.name }
           placeholder={ this.props.placeholder }
-          className={ this.state.errorVisible ? 'login-form-input input-error' : 'login-form-input' }
+          className={ this.state.errorVisible ? 'text-input input-error' : 'text-input' }
           onChange={ this.handleInputChange }
           type={ this.props.type }
           value={ this.state.value } />

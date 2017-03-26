@@ -32,17 +32,6 @@
   margin-bottom: 2em;
 }
 
-.login-input {
-  margin-top: 1.5em;
-}
-
-.login-form-label {
-  font-weight: 300;
-  color: #5C5C5C;
-  display: block;
-  margin-bottom: 10px;
-}
-
 .login-btn {
   cursor: pointer;
   display: inline-block;
