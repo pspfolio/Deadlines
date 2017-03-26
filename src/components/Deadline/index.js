@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { handleFetch } from '../../utils/AuthService';
+import { baseApiUrl } from '../../utils/constants';
 import moment from 'moment';
 import TextInput from '../TextInput';
 import './deadline.css';
@@ -27,7 +28,7 @@ export default class Deadline extends Component {
     }
     
     componentDidMount() {
-        handleFetch(`http://localhost:5000/api/project/${this.props.params.id}`)
+        handleFetch(`${baseApiUrl}/project/${this.props.params.id}`)
             .then((result) => {
                 console.log(result);
                 const {id, name, customer, addedTS, closedTS, deadline, priority, closed} = result;
