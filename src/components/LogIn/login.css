@@ -45,6 +45,11 @@
   padding: 0 60px;
   outline: 0;
   border: none;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.login-btn:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,.1);
 }
 
 .login-btn:disabled {

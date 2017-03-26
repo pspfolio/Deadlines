@@ -45,6 +45,25 @@
     margin-bottom: 10px;
 }
 
+.deadline-btn {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 2em;
+    background: #00DEAD;
+    border-radius: 5px;
+    height: 50px;
+    font-size: 14px;
+    color: #fff;
+    padding: 0 30px;
+    outline: 0;
+    border: none;
+    transition: box-shadow 0.2s ease-in;
+}
+
+.deadline-btn:hover {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,.1);
+}
+
 .working {
     color: #00DEAD;
 }

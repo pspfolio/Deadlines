@@ -109,7 +109,7 @@ export default class Deadline extends Component {
                         <p className={ this.state.closed ? 'closed' : 'working'}>{this.state.closed ? 'Closed' : 'Working'}</p>
                     </div>
 
-                    <button onClick={ this.updateDeadline } className='deadline-btn'>Login</button>
+                    <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
                 </section>
             </div>
         )
