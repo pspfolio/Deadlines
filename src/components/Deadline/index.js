@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { handleFetch } from '../../utils/AuthService';
 import moment from 'moment';
 import TextInput from '../TextInput';
+import './deadline.css';
 
 export default class Deadline extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ export default class Deadline extends Component {
 
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.updateDeadline = this.updateDeadline.bind(this);
     }
     
     componentDidMount() {
@@ -43,7 +45,6 @@ export default class Deadline extends Component {
     }
 
     handleInputChange(event) {
-        console.log(event);
         const value = event.target.value;
         const name = event.target.name;
         
@@ -52,57 +53,65 @@ export default class Deadline extends Component {
         });
     }
 
+    updateDeadline() {
+        console.log(this.state);
+        console.log("button pressed");
+    }
+
     render() {
-        console.log(this.state.name);
         return (
-            <section>
-                <h1>Project info</h1> 
+            <div className='deadline-container'>
+                <section className='flex-container-header flex-deadline'>
+                <h2 className='header-deadline'>Project info</h2> 
+                </section>
+                <section className='flex-container-deadline flex-deadline'>
+                    <TextInput
+                        label='Project name' 
+                        errorMessage='Project name is required'
+                        name='name'
+                        id='name'
+                        type='text'
+                        value={ this.state.name }
+                        required={ true }
+                        onChange={ this.handleInputChange } />
 
-                <TextInput
-                    label='Project name' 
-                    errorMessage='Project name is required'
-                    name='name'
-                    id='name'
-                    type='text'
-                    value={ this.state.name }
-                    required={ true }
-                    onChange={ this.handleInputChange } />
+                    <TextInput 
+                        label='Customer'
+                        name='customer'
+                        id='customer'
+                        type='text'
+                        value={ this.state.customer }
+                        required={ true }
+                        onChange={ this.handleInputChange } />
 
-                <TextInput 
-                    label='Customer'
-                    name='customer'
-                    id='customer'
-                    type='text'
-                    value={ this.state.customer }
-                    required={ true }
-                    onChange={ this.handleInputChange } />
-
-                <TextInput 
-                    label='Deadline'
-                    name='deadline'
-                    id='deadline'
-                    type='text'
-                    value={ this.state.deadline }
-                    required={ true }
-                    onChange={ this.handleInputChange } />
+                    <TextInput 
+                        label='Deadline'
+                        name='deadline'
+                        id='deadline'
+                        type='text'
+                        value={ this.state.deadline }
+                        required={ true }
+                        onChange={ this.handleInputChange } />
 
 
-                <div>
-                    <label>Deadline from now</label>
-                    <p>{moment(this.state.deadline).fromNow()}</p>
-                </div>
+                    <div className='deadline-property'>
+                        <label>Deadline from now</label>
+                        <p>{moment(this.state.deadline).fromNow()}</p>
+                    </div>
 
-                <div>
-                    <label>Project added</label>
-                    <p>{moment(this.state.addedTS).format("DD.MM.YYYY")}</p>
-                </div>
+                    <div className='deadline-property'>
+                        <label>Project added</label>
+                        <p>{moment(this.state.addedTS).format("DD.MM.YYYY")}</p>
+                    </div>
 
-                <div>
-                    <label>Status</label>
-                    <p>{this.state.closedTS}</p>
-                </div>
-            </section>
-                
+                    <div className='deadline-property'>
+                        <label>Status</label>
+                        <p className={ this.state.closed ? 'closed' : 'working'}>{this.state.closed ? 'Closed' : 'Working'}</p>
+                    </div>
+
+                    <button onClick={ this.updateDeadline } className='deadline-btn'>Login</button>
+                </section>
+            </div>
         )
     }
 }
