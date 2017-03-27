@@ -18,7 +18,6 @@ export default class Deadline extends Component {
             deadline: '',
             priority: 1,
             closed: false,
-            comments: [],
             fetching: false
         }
 
@@ -55,8 +54,17 @@ export default class Deadline extends Component {
     }
 
     updateDeadline() {
-        console.log(this.state);
-        console.log("button pressed");
+        handleFetch(`${baseApiUrl}/project/${this.state.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(this.state)
+        }).then((result) => {
+            if(result.error) {
+                this.setState({error: true})
+            } else {
+                // todo show update ok
+                console.log("OK");
+            }
+        })
     }
 
     render() {

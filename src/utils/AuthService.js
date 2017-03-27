@@ -41,8 +41,10 @@ export function handleFetch(url, options) {
   }
 
   return fetch(url, { headers, ...options }).then(response => {
-    if(response.ok) {
+    if(response.ok && response.status !== 204) {
       return response.json();
+    } else if(response.ok && response.status === 204) {
+      return response;
     }
   })
 }
@@ -63,7 +65,6 @@ function shouldRefreshToken() {
 }
 
 function refreshToken(endpoint) {
-  console.log("refreshing now!!!!")
   handleFetch(`${baseApiUrl}/${endpoint}`).then((result) => {
     setToken(result.token);
   })
