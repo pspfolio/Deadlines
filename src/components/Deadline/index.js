@@ -18,7 +18,7 @@ export default class Deadline extends Component {
             deadline: '',
             priority: 1,
             closed: false,
-            fetching: false
+            updateOk: false
         }
 
 
@@ -59,10 +59,12 @@ export default class Deadline extends Component {
             body: JSON.stringify(this.state)
         }).then((result) => {
             if(result.error) {
-                this.setState({error: true})
+                this.setState({ error: true })
             } else {
-                // todo show update ok
-                console.log("OK");
+                this.setState({ updateOk: true })
+                setTimeout(() => {
+                    this.setState({ updateOk: false })
+                }, 2000)
             }
         })
     }
@@ -71,9 +73,10 @@ export default class Deadline extends Component {
         return (
             <div className='deadline-container'>
                 <section className='flex-container-header flex-deadline'>
-                <h2 className='header-deadline'>Project info</h2> 
+                <h2 className='header-deadline'>Project info</h2>
                 </section>
                 <section className='flex-container-deadline flex-deadline'>
+                    
                     <TextInput
                         label='Project name' 
                         errorMessage='Project name is required'
@@ -120,6 +123,9 @@ export default class Deadline extends Component {
 
                     <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
                 </section>
+                <div className='status-message-container'>
+                    { this.state.updateOk ? <p className='update-ok'>Project updated</p> : null }
+                </div>
             </div>
         )
     }

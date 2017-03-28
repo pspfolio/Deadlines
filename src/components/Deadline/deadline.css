@@ -8,6 +8,20 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.update-ok {
+    color: #00DEAD;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.status-message-container {
+    height: 20px;
+    width: 60%;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .flex-container-deadline {
     margin: 60px auto 0 auto;
     width: 60%;
