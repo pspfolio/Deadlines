@@ -3,6 +3,7 @@ import { handleFetch } from '../../utils/AuthService';
 import { baseApiUrl } from '../../utils/constants';
 import moment from 'moment';
 import TextInput from '../TextInput';
+import TextData from '../TextData';
 import './deadline.css';
 
 export default class Deadline extends Component {
@@ -105,21 +106,11 @@ export default class Deadline extends Component {
                         required={ true }
                         onChange={ this.handleInputChange } />
 
+                    <TextData label="Deadline from now" value={moment(this.state.deadline).fromNow()} />
 
-                    <div className='deadline-property'>
-                        <label>Deadline from now</label>
-                        <p>{moment(this.state.deadline).fromNow()}</p>
-                    </div>
+                    <TextData label="Project added" value={moment(this.state.addedTS).format("DD.MM.YYYY")} />
 
-                    <div className='deadline-property'>
-                        <label>Project added</label>
-                        <p>{moment(this.state.addedTS).format("DD.MM.YYYY")}</p>
-                    </div>
-
-                    <div className='deadline-property'>
-                        <label>Status</label>
-                        <p className={ this.state.closed ? 'closed' : 'working'}>{this.state.closed ? 'Closed' : 'Working'}</p>
-                    </div>
+                    <TextData label="Status" value={this.state.closed ? 'Closed' : 'Working'} valueClass={this.state.closed ? 'closed' : 'working'} />
 
                     <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
                 </section>

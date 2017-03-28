@@ -6,7 +6,7 @@ import { baseApiUrl } from '../../utils/constants';
 import moment from 'moment';
 import './dashboard.css';
 
-export default class dlDashboard extends Component {
+export default class Deadline extends Component {
   constructor() {
     super();
 
