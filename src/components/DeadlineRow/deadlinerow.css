@@ -1,0 +1,9 @@
+.deadline-name a {
+    color: #00DEAD;
+    text-decoration: none;
+    transition: text-decoration .5s ease-in-out;
+}
+
+.deadline-name a:hover {
+    text-decoration: underline;
+}
