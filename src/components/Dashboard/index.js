@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DeadlineTable from '../DeadlineTable';
 import Add from '../Add';
+import NotFound from '../NotFound';
+import Loading from '../Loading';
 import { handleFetch } from '../../utils/AuthService';
 import { baseApiUrl } from '../../utils/constants';
 import moment from 'moment';
@@ -11,18 +13,23 @@ export default class Deadline extends Component {
     super();
 
     this.state = {
-      deadlines: []
+      deadlines: [],
+      loading: false
     }
 
     this.handleAddDeadline = this.handleAddDeadline.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ loading: true })
     handleFetch(`${baseApiUrl}/project/list`).then((result) => {
       if(result.error) {
         this.setState({error: true})
       }
-      this.setState({deadlines: result});
+      this.setState({
+        deadlines: result,
+        loading: false
+      });
     })
   }
 
@@ -51,13 +58,13 @@ export default class Deadline extends Component {
           <h2 className='site-header'>Deadlines</h2>
           <Add handleAddDeadline={ this.handleAddDeadline }/>
         </section>
-        {this.state.deadlines.length > 0 && !this.state.error ?
-          <DeadlineTable deadlines={ this.state.deadlines }/> :
-          <section className='flex-container-dashboard not-found'>
-            <p className='throw-table'>(╯°□°）╯︵ ┻━┻</p>
-            <h2 className='site-header'>No Deadlines!</h2>
-          </section>
+        {this.state.loading ? <Loading /> : 
+        
+          this.state.deadlines.length > 0 && !this.state.error ?
+            <DeadlineTable deadlines={ this.state.deadlines }/> :
+            <NotFound />
         }
+        
       </section>
     )
   }

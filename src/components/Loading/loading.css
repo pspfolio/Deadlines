@@ -1,0 +1,46 @@
+@keyframes blink {
+    0% {
+        opacity: 0
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.flex-container-loading {
+    margin: 100px auto 0 auto;
+    display: flex;
+    max-width: 1300px;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 100px;
+    flex-direction: column;
+    align-items: center;
+    color: #5C5C5C;
+}
+
+.loading-header {
+  font-weight: 300;
+  font-size: 36px;
+  color: #5C5C5C;
+}
+
+.loading span {
+    font-size: 4.5em;
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.loading span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.loading span:nth-child(3) {
+    animation-delay: .4s;
+}
