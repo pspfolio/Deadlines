@@ -29,19 +29,8 @@ export default class Deadline extends Component {
     
     componentDidMount() {
         handleFetch(`${baseApiUrl}/project/${this.props.params.id}`)
-            .then((result) => {
-                console.log(result);
-                const {id, name, customer, addedTS, closedTS, deadline, priority, closed} = result;
-                this.setState({ 
-                    id,
-                    name,
-                    customer,
-                    addedTS,
-                    closedTS,
-                    deadline,
-                    priority,
-                    closed
-                })
+            .then((data) => {
+                this.setState({ ...data })
             })
     }
 
