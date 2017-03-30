@@ -70,6 +70,10 @@ export default class Deadline extends Component {
         })
     }
 
+    get projectStatus() {
+        return this.state.closed ? 'closed' : 'working';
+    }
+
     render() {
         return (
             <div className='deadline-container'>
@@ -106,13 +110,14 @@ export default class Deadline extends Component {
                         required={ true }
                         onChange={ this.handleInputChange } />
 
-                    <TextData label="Deadline from now" value={moment(this.state.deadline).fromNow()} />
+                    <TextData label="Deadline from now" value={ moment(this.state.deadline).fromNow() } />
 
-                    <TextData label="Project added" value={moment(this.state.addedTS).format("DD.MM.YYYY")} />
+                    <TextData label="Project added" value={ moment(this.state.addedTS ).format("DD.MM.YYYY") } />
 
-                    <TextData label="Status" value={this.state.closed ? 'Closed' : 'Working'} valueClass={this.state.closed ? 'closed' : 'working'} />
+                    <TextData label="Status" value={ this.projectStatus } valueClass={ this.projectStatus } />
 
                     <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
+                    <button className='deadline-btn close-btn'>Close Project</button>
                 </section>
                 <div className='status-message-container'>
                     { this.state.updateOk ? <p className='update-ok'>Project updated</p> : null }
