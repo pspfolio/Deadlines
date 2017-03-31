@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
 import LandingPage from './components/LandingPage';
-import Dashboard from './components/Dashboard';
+import Dashboard from './containers/Dashboard';
 import Login from './components/LogIn';
 import Deadline from './components/Deadline';
 import { isAuthenticated } from './utils/AuthService';

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import DeadlineTable from '../DeadlineTable';
-import Add from '../Add';
-import NotFound from '../NotFound';
-import Loading from '../Loading';
+import DeadlineTable from '../../components/DeadlineTable';
+import Add from '../../components/Add';
+import NotFound from '../../components/NotFound';
+import Loading from '../../components/Loading';
 import { handleFetch } from '../../utils/AuthService';
 import { baseApiUrl } from '../../utils/constants';
 import moment from 'moment';
