@@ -5,7 +5,7 @@ import App from './App';
 import LandingPage from './components/LandingPage';
 import Dashboard from './containers/Dashboard';
 import Login from './components/LogIn';
-import Deadline from './components/Deadline';
+import Deadline from './containers/Deadline';
 import { isAuthenticated } from './utils/AuthService';
 import './index.css';
 

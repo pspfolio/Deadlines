@@ -64,7 +64,6 @@ export default class Deadline extends Component {
               <DeadlineTable deadlines={ this.state.deadlines }/> :
               <NotFound />
         }
-        
       </section>
     )
   }
