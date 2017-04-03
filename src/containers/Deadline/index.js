@@ -9,19 +9,15 @@ export default class Deadline extends Component {
         super(props);
 
         this.state = {
-            id: '',
             name: '',
             customer: '',
-            addedTS: '',
-            closedTS: '',
             deadline: '',
-            priority: 1,
-            closed: false,
             updateOk: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.updateDeadline = this.updateDeadline.bind(this);
+        this.closeDeadline = this.closeDeadline.bind(this);
     }
 
     componentDidMount() {
@@ -56,6 +52,13 @@ export default class Deadline extends Component {
         })
     }
 
+    closeDeadline() {
+        this.setState({ 
+            closed: true,
+            closedTS: new Date()
+         }, this.updateDeadline);
+    }
+
     get projectStatus() {
         return this.state.closed ? 'closed' : 'working';
     }
@@ -74,7 +77,7 @@ export default class Deadline extends Component {
 
                 <div className='flex-container-deadline flex-deadline'>
                     <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
-                    <button className='deadline-btn close-btn'>Close Project</button>
+                    <button onClick={ this.closeDeadline }className='deadline-btn close-btn'>Close Project</button>
                 </div>
                 
                 <div className='status-message-container'>
