@@ -17,7 +17,6 @@ export default class NavProfile extends Component {
     return (
       <span>
         { this.state.payload.email } 
-        <img alt='user' src={ this.state.avatar } />
       </span>
     )
   }
