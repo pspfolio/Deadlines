@@ -66,10 +66,17 @@ export default class Deadline extends Component {
                 <section className='flex-container-header flex-deadline'>
                     <h2 className='header-deadline'>Project info</h2>
                 </section>
-                <DeadlineFields deadline={ this.state }
-                    handleInputChange={ this.handleInputChange }
-                    projectStatus={ this.projectStatus }
-                    updateDeadline={ this.updateDeadline } />
+                    <DeadlineFields 
+                        deadline={ this.state }
+                        handleInputChange={ this.handleInputChange }
+                        projectStatus={ this.projectStatus }
+                        updateDeadline={ this.updateDeadline } />
+
+                <div className='flex-container-deadline flex-deadline'>
+                    <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
+                    <button className='deadline-btn close-btn'>Close Project</button>
+                </div>
+                
                 <div className='status-message-container'>
                     { this.state.updateOk ? <p className='update-ok'>Project updated</p> : null }
                 </div>

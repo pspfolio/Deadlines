@@ -4,7 +4,7 @@ import TextData from '../TextData';
 import moment from 'moment';
 
 export default ({ deadline, handleInputChange, projectStatus, updateDeadline }) => (
-    <section className='flex-container-deadline flex-deadline'>
+    <div className='flex-container-deadline flex-deadline'>
         <TextInput
             label='Project name'
             errorMessage='Project name is required'
@@ -34,12 +34,7 @@ export default ({ deadline, handleInputChange, projectStatus, updateDeadline }) 
             onChange={handleInputChange} />
 
         <TextData label="Deadline from now" value={moment(deadline.deadline).fromNow()} />
-
         <TextData label="Project added" value={moment(deadline.addedTS).format("DD.MM.YYYY")} />
-
         <TextData label="Status" value={projectStatus} valueClass={projectStatus} />
-
-        <button onClick={updateDeadline} className='deadline-btn'>Update Project</button>
-        <button className='deadline-btn close-btn'>Close Project</button>
-    </section>
+    </div>
 )
