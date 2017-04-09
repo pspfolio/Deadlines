@@ -29,7 +29,7 @@ export default class LogIn extends Component {
   handleLogIn(e) {
     e.preventDefault();
     login(this.state.username, this.state.password).then(result => {
-      if(!result) {
+      if(!result.token) {
         this.setState({signUpError: true})
       } else {
         setToken(result.token);

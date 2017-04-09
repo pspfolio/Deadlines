@@ -21,7 +21,7 @@ ReactDOM.render(
     <Route path='/' component={ App }>
       <IndexRoute component={ LandingPage } />
       <Route path='/login' component={ Login } />
-            <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
+        <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
       <Route path='/deadline/:id' component={ Deadline } onEnter={ requireAuth } />
     </Route>
   </Router>

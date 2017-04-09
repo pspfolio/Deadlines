@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import jwtDecode from 'jwt-decode';
 import { getToken } from '../../utils/AuthService.js';
-import userPic from './user_pic.png';
 
 export default class NavProfile extends Component {
   constructor() {
@@ -9,7 +8,6 @@ export default class NavProfile extends Component {
 
     this.state = {
       payload: jwtDecode(getToken()),
-      avatar: userPic
     }
   }
 

@@ -1,5 +1,6 @@
 import { browserHistory } from 'react-router';
 import { isTokenExpired } from './jwtHelper';
+import { handleFetch } from './FetchService';
 import { TOKEN, TOKEN_ADDED, baseApiUrl } from './constants';
 
 export function login(username, password) {
@@ -11,6 +12,7 @@ export function isAuthenticated() {
   if(token && shouldRefreshToken()) {
     refreshToken('auth/refresh')
   }
+
   return token ? !isTokenExpired(token) : false;
 }
 
@@ -30,25 +32,6 @@ export function setToken(token) {
   localStorage.setItem(TOKEN_ADDED, Date.now());
 }
 
-export function handleFetch(url, options) {
-  const headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  }
-
-  if(getToken()) {
-    headers['Authorization'] = `Bearer ${getToken()}`
-  }
-
-  return fetch(url, { headers, ...options }).then(response => {
-    if(response.ok && response.status !== 204) {
-      return response.json();
-    } else if(response.ok && response.status === 204) {
-      return response;
-    }
-  })
-}
-
 function getTokenAdded() {
   const result = localStorage.getItem(TOKEN_ADDED);
   return result
@@ -65,16 +48,16 @@ function shouldRefreshToken() {
 }
 
 function refreshToken(endpoint) {
-  handleFetch(`${baseApiUrl}/${endpoint}`).then((result) => {
+  handleFetch(`${baseApiUrl}/${endpoint}`, getToken()).then((result) => {
     setToken(result.token);
-  })
+  }).then((response) => response.json())
 }
 
 function doLogin(endpoint, user) {
-  return handleFetch(`${baseApiUrl}/${ endpoint }`, {
+  return handleFetch(`${baseApiUrl}/${ endpoint }`, null, {
     method: 'POST',
     body: JSON.stringify(user)
-  })
+  }).then((response) => response.json())
 }
 
 function clearLocalstorageById(ID) {
