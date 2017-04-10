@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { handleFetch } from '../../utils/AuthService';
+import { loadDeadline } from '../../utils/DeadlineService';
 import { baseApiUrl } from '../../utils/constants';
 import DeadlineFields from '../../components/DeadlineFields';
 import './deadline.css';
@@ -21,10 +22,8 @@ export default class Deadline extends Component {
     }
 
     componentDidMount() {
-        handleFetch(`${baseApiUrl}/project/${this.props.params.id}`)
-            .then((data) => {
-                this.setState({ ...data })
-            })
+        const { id } = this.props.params;
+        loadDeadline(id).then((result) => this.setState({ ...result }))
     }
 
     handleInputChange(event) {
