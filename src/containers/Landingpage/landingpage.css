@@ -1,0 +1,30 @@
+
+.content-wrapper nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1040px;
+    margin-top: 50px;
+}
+
+.content-wrapper nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-wrapper nav ul li {
+    font-size: .8rem;
+    list-style-type: none;
+    padding: 0 30px;
+}
+
+.content-wrapper nav ul li:first-child {
+    font-weight: 700;
+}
+
+.content-wrapper .main-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
-import LandingPage from './components/LandingPage';
+import Landingpage from './containers/Landingpage';
 import Dashboard from './containers/Dashboard';
 import Login from './components/LogIn';
 import Deadline from './containers/Deadline';
@@ -18,10 +18,10 @@ function requireAuth(nextState, replace) {
 ReactDOM.render(
  (
   <Router history={ browserHistory }>
-    <Route path='/' component={ App }>
-      <IndexRoute component={ LandingPage } />
+    <Route path='/' component={ Landingpage } />
+    <Route path='/dashboard' component={ App }>
+      <IndexRoute component={ Dashboard } onEnter={ requireAuth } />
       <Route path='/login' component={ Login } />
-        <Route path='/dashboard' component={ Dashboard } onEnter={ requireAuth } />
       <Route path='/deadline/:id' component={ Deadline } onEnter={ requireAuth } />
     </Route>
   </Router>
