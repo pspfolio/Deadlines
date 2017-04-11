@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { handleFetch } from '../../utils/AuthService';
-import { loadDeadline } from '../../utils/DeadlineService';
-import { baseApiUrl } from '../../utils/constants';
+import { loadDeadline, updateDeadline } from '../../utils/DeadlineService';
 import DeadlineFields from '../../components/DeadlineFields';
 import './deadline.css';
 
@@ -12,13 +10,14 @@ export default class Deadline extends Component {
         this.state = {
             name: '',
             customer: '',
-            deadline: '',
-            updateOk: false
+            deadline: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.updateDeadline = this.updateDeadline.bind(this);
         this.closeDeadline = this.closeDeadline.bind(this);
+        this.showTempMessage = this.showTempMessage.bind(this);
+        this.handleErrors = this.handleErrors.bind(this);
     }
 
     componentDidMount() {
@@ -36,19 +35,13 @@ export default class Deadline extends Component {
     }
 
     updateDeadline() {
-        handleFetch(`${baseApiUrl}/project/${this.state.id}`, {
-            method: 'PUT',
-            body: JSON.stringify(this.state)
-        }).then((result) => {
-            if (result.error) {
-                this.setState({ error: true })
+        updateDeadline(this.state).then((result) => {
+            if (!result.ok) {
+                this.handleErrors();
             } else {
-                this.setState({ updateOk: true })
-                setTimeout(() => {
-                    this.setState({ updateOk: false })
-                }, 2000)
+                this.showTempMessage('Project updated');
             }
-        })
+        }).catch(this.handleErrors)
     }
 
     closeDeadline() {
@@ -56,6 +49,15 @@ export default class Deadline extends Component {
             closed: true,
             closedTS: new Date()
          }, this.updateDeadline);
+    }
+
+    showTempMessage(message) {
+        this.setState({ message })
+        setTimeout(() => this.setState({ message: '' }), 2000)
+    }
+
+    handleErrors() {
+        this.setState({ errorMessage: 'Something went wrong, please try again'})
     }
 
     get projectStatus() {
@@ -80,7 +82,8 @@ export default class Deadline extends Component {
                 </div>
                 
                 <div className='status-message-container'>
-                    { this.state.updateOk ? <p className='update-ok'>Project updated</p> : null }
+                    { this.state.message && <p className='update-ok'>{ this.state.message }</p> }
+                    { this.state.errorMessage && <p className='update-error'>{ this.state.errorMessage }</p> }
                 </div>
             </div>
         )

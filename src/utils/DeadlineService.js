@@ -6,10 +6,10 @@ export const loadDeadline = (id) => handleFetch(`${baseApiUrl}/project/${id}`, g
 
 export const loadDeadlines = () => handleFetch(`${baseApiUrl}/project/list`, getToken()).then(toJson);
 
-export const updateDeadline = (deadline) => handleFetch(`${baseApiUrl}/project/${this.state.id}`, getToken(), {
+export const updateDeadline = (deadline) => handleFetch(`${baseApiUrl}/project/${deadline.id}`, getToken(), {
   method: 'PUT',
   body: JSON.stringify(deadline)
-}).then(toJson)
+})
 
 export const addDeadline = (deadline) => {
   return handleFetch(`${baseApiUrl}/project`, getToken(), {
@@ -19,5 +19,6 @@ export const addDeadline = (deadline) => {
 }
 
 function toJson(response) {
+  console.log("response", response)
   return response.json()
 }
