@@ -19,6 +19,5 @@ export const addDeadline = (deadline) => {
 }
 
 function toJson(response) {
-  console.log("response", response)
   return response.json()
 }

@@ -9,6 +9,12 @@ export function login(username, password) {
 
 export function isAuthenticated() {
   const token = getToken();
+
+  // Todo korjattava, että ei tallenneta undefinedia localstorageen
+  if (token === 'undefined') {
+    return false;
+  }
+
   if(token && shouldRefreshToken()) {
     refreshToken('auth/refresh')
   }

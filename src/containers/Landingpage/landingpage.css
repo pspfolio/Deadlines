@@ -1,30 +1,76 @@
+.content-header {
+    height: 675px;
+    background-color: #94A1F9;
+    color: white;
+}
 
-.content-wrapper nav {
+.header-flex-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 auto;
     max-width: 1040px;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
-.content-wrapper nav ul {
+.content-header nav ul {
     display: flex;
     justify-content: space-between;
 }
 
-.content-wrapper nav ul li {
+.content-header nav ul li {
     font-size: .8rem;
     list-style-type: none;
     padding: 0 30px;
+    font-weight: 300;
 }
 
-.content-wrapper nav ul li:first-child {
-    font-weight: 700;
+.content-header nav ul li a {
+    text-decoration: none;
+    color: white;
 }
 
-.content-wrapper .main-logo {
+.content-header nav ul li:first-child {
+    font-weight: 400;
+}
+
+.content-header .main-logo {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 500;
+}
+
+#header-text {
+    flex-direction: column;
+    font-weight: 300;
+}
+
+#header-text h1 {
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: .08rem;
+    margin: 100px 0 0 0;
+}
+
+#header-text p {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 700px;
+    line-height: 2.2rem;
+}
+
+.button-started {
+    margin-top: 20px;
+    border: 0;
+    padding: 0;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    background-color: #8392FB;
+    box-shadow: 5px 6px 8px 0 rgba(44, 46, 47, .2);
+    cursor: pointer;
+}
+
+.button-started:focus {
+    outline: 0;
 }
