@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="197px" height="119px" viewBox="0 0 197 119" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>track</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Landingpage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage-UI" transform="translate(-851.000000, -863.000000)" stroke="#8392FB">
+            <g id="Callouts" transform="translate(246.000000, 713.000000)">
+                <g id="Track-your-deadlines" transform="translate(103.000000, 0.000000)">
+                    <g id="track" transform="translate(503.000000, 151.000000)">
+                        <g>
+                            <path d="M10.8333333,104.918478 L65.6372549,51.5054348" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M115.343137,79.4836957 L184.803922,11.4456522" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M77.0549916,52.3523019 L103.925401,79.9085677" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                            <ellipse id="Oval" stroke-width="2" cx="6.37254902" cy="110.641304" rx="6.37254902" ry="6.35869565"></ellipse>
+                            <ellipse id="Oval" stroke-width="2" cx="71.372549" cy="47.0543478" rx="6.37254902" ry="6.35869565"></ellipse>
+                            <ellipse id="Oval" stroke-width="2" cx="108.333333" cy="85.2065217" rx="6.37254902" ry="6.35869565"></ellipse>
+                            <ellipse id="Oval" stroke-width="2" cx="188.627451" cy="6.35869565" rx="6.37254902" ry="6.35869565"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

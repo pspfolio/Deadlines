@@ -6,15 +6,22 @@
     overflow: hidden;
 }
 
-.header-flex-container {
+.landing-flex-container {
     z-index: 99999;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 auto;
     max-width: 1040px;
     padding-top: 50px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
 }
 
 .content-header nav ul {
@@ -108,4 +115,25 @@
     left: 5%;
     top: 60%;
     background: linear-gradient(180deg,rgba(184, 193, 255, .1) -10%,rgba(131, 146,251, .1) 90%);
+}
+
+.info {
+    margin-top: 150px;
+}
+
+.info-section {
+    width: 45%;
+}
+
+.info-section h3 {
+    font-weight: 400;
+    color: #242B2A;
+    font-size: 1.5rem;
+}
+
+.info-section p {
+    font-weight: 300;
+    color: #919896;
+    font-size: 1.15rem;
+    line-height: 2rem;
 }
