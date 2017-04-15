@@ -8,20 +8,25 @@ export default class Landingpage extends Component {
             <div className='content-wrapper'>
                 <header className='content-header'>
                     <nav className='header-flex-container'>
-                        <div className='main-logo'>
+                        <div className='main-logo forward'>
                             DEADLINES
                         </div>
                         <ul>
-                            <li>Get Started</li>
-                            <li><Link to='/login'>Sign in -></Link></li>
+                            <li className='forward'>Get Started</li>
+                            <li className='forward'><Link to='/login'>Sign in -></Link></li>
                         </ul>
                     </nav>
 
                     <section id='header-text' className='header-flex-container'>
-                        <h1>Are you ready to hit your deadlines?</h1>
-                        <p>Deadlines helps you and your team to track deadlines and makes prioritizing easier. Don't miss deadlines never again.</p>
-                        <button className='button-started' type='button'>Get Started</button>
+                        <h1 className='forward'>Are you ready to hit your deadlines?</h1>
+                        <p className='forward'>Deadlines helps you and your team to track deadlines and makes prioritizing easier. Don't miss deadlines never again.</p>
+                        <button className='button-started forward' type='button'>Get Started</button>
                     </section>
+
+                    <div id='boxes'>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </header>
             </div>
         )
