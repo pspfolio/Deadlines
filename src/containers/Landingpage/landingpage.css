@@ -117,23 +117,51 @@
     background: linear-gradient(180deg,rgba(184, 193, 255, .1) -10%,rgba(131, 146,251, .1) 90%);
 }
 
-.info {
+.basic-margin-top {
     margin-top: 150px;
 }
 
 .info-section {
-    width: 45%;
+    width: 50%;
 }
 
-.info-section h3 {
+.align-right {
+    text-align: right;
+}
+
+.header-basic {
     font-weight: 400;
     color: #242B2A;
     font-size: 1.5rem;
 }
 
-.info-section p {
+.paragraph-basic {
     font-weight: 300;
     color: #919896;
     font-size: 1.15rem;
     line-height: 2rem;
+}
+
+.bots {
+    background-color: #FAFBFF;
+    margin-top: 150px;
+}
+
+.bots-flex-container {
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1040px;
+    padding-top: 150px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.bots-flex-container h3 {
+    font-weight: 400;
+    color: #242B2A;
+    font-size: 1.5rem;
 }

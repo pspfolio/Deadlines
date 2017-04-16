@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="92px" height="103px" viewBox="0 0 92 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>visualize</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Landingpage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage-UI" transform="translate(-904.000000, -1628.000000)" stroke="#8392FB" stroke-width="2">
+            <g id="Callouts" transform="translate(246.000000, 713.000000)">
+                <g id="Visualize-Deadlines" transform="translate(0.000000, 776.000000)">
+                    <g id="visualize" transform="translate(659.000000, 140.000000)">
+                        <circle id="Oval" cx="5" cy="96" r="5"></circle>
+                        <circle id="Oval" cx="45" cy="5" r="5"></circle>
+                        <path d="M5,90.5 L5,51" id="Line" stroke-linecap="square"></path>
+                        <circle id="Oval" cx="45" cy="96" r="5"></circle>
+                        <path d="M45,90.5 L45,51" id="Line" stroke-linecap="square"></path>
+                        <path d="M45,50.5 L45,11" id="Line" stroke-linecap="square"></path>
+                        <circle id="Oval" cx="85" cy="96" r="5"></circle>
+                        <path d="M85,90.5 L85,51" id="Line" stroke-linecap="square"></path>
+                        <path d="M5,51 L85,51" id="Line" stroke-linecap="square"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

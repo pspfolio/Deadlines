@@ -29,12 +29,39 @@ export default class Landingpage extends Component {
                     </div>
                 </header>
 
-                <div className='landing-flex-container space-around info'>
+                <div className='landing-flex-container space-around basic-margin-top'>
                     <section className='info-section'>
-                        <h3>Track your deadlines</h3>
-                        <p>Tacos poke yr tbh sriracha. Bespoke kinfolk glossier chillwave migas fingerstache. Helvetica snackwave ugh mlkshk prism retro. Skateboard flannel art party lomo meditation blog.</p>
+                        <h3 className='header-basic'>Track your deadlines</h3>
+                        <p className='paragraph-basic'>Tacos poke yr tbh sriracha. Bespoke kinfolk glossier chillwave migas fingerstache. Helvetica snackwave ugh mlkshk prism retro. Skateboard flannel art party lomo meditation blog.</p>
                     </section>
                     <img alt='icon of tracking deadlines' src='img/track.svg' />
+                </div>
+
+                <div className='landing-flex-container space-around basic-margin-top'>
+                    <img alt='icon of tracking deadlines' src='img/priorize.svg' />
+                    <section className='info-section align-right'>
+                        <h3 className='header-basic'>Priorize deadlines and enjoy ride</h3>
+                        <p className='paragraph-basic'>Tacos poke yr tbh sriracha. Bespoke kinfolk glossier chillwave migas fingerstache. Helvetica snackwave ugh mlkshk prism retro. Skateboard flannel art party lomo meditation blog.</p>
+                    </section>
+                </div>
+
+                <div className='landing-flex-container space-around basic-margin-top'>
+                    <section className='info-section'>
+                        <h3 className='header-basic'>Visualize deadlines</h3>
+                        <p className='paragraph-basic'>Tacos poke yr tbh sriracha. Bespoke kinfolk glossier chillwave migas fingerstache. Helvetica snackwave ugh mlkshk prism retro. Skateboard flannel art party lomo meditation blog.</p>
+                    </section>
+                    <img alt='icon of tracking deadlines' src='img/visualize.svg' />
+                </div>
+
+                <div className='bots'>
+                    <div className='bots-flex-container'>
+                        <section>
+                            <h3 className='header-basic'>Use the web application or choose from different bots</h3>
+                            <p className='paragraph-basic'>Multiple bots for your help</p>
+                        </section>
+
+                        
+                    </div>
                 </div>
 
             </div>
