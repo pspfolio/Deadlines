@@ -81,7 +81,24 @@
     cursor: pointer;
 }
 
+.button-started-card {
+    margin-top: 60px;
+    border: 0;
+    padding: 0;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    background-color: #b0b7b5;
+    box-shadow: 5px 6px 8px 0 rgba(44, 46, 47, .2);
+    cursor: pointer;
+    transition: background-color .2s ease-in;
+}
+
 .button-started:focus {
+    outline: 0;
+}
+
+.button-started-card:focus {
     outline: 0;
 }
 
@@ -154,7 +171,7 @@
     width: 100%;
     margin: 0 auto;
     max-width: 1040px;
-    padding-top: 150px;
+    padding: 150px 0;
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -164,4 +181,35 @@
     font-weight: 400;
     color: #242B2A;
     font-size: 1.5rem;
+}
+
+.bots-secondary-text {
+    font-weight: 300;
+    color: #919896;
+    font-size: .9rem;
+    line-height: 1.5rem;
+}
+
+.bot-card {
+    height: 350px;
+    width: 25%;
+    padding: 30px;
+    background-color: white;
+    border: 2px solid #b0b7b5;
+    border-radius: 8px;
+    transition: border-color .3s ease-in;
+}
+
+.bot-card:hover {
+    border-color: #8392FB;
+}
+
+.bot-card:hover .button-started-card {
+    background-color: #8392FB;
+}
+
+.bots-card-header {
+    font-weight: 400;
+    color: #242B2A;
+    font-size: 1.25rem;
 }

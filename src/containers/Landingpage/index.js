@@ -60,7 +60,29 @@ export default class Landingpage extends Component {
                             <p className='paragraph-basic'>Multiple bots for your help</p>
                         </section>
 
-                        
+                        <div className='landing-flex-container space-around'>
+                            <section className='bot-card'>
+                                <img src='img/teams-icon.png' alt='Teams chat logo' />
+                                <h4 className='bots-card-header'>Teams</h4>
+                                <p className='bots-secondary-text'>Track deadlines with Teams chatbot for free.</p>
+                                <p className='bots-secondary-text'>Bot is released in near future.</p>
+                                <button className='button-started-card forward' type='button'>Get Started</button>
+                            </section>
+                            <section className='bot-card'>
+                                <img src='img/slack-icon.png' alt='Slack chat logo' />
+                                <h4 className='bots-card-header'>Slack</h4>
+                                <p className='bots-secondary-text'>Track your deadlines through the Slack chatbot for free.</p>
+                                <p className='bots-secondary-text'>Bot is released in near future.</p>
+                                <button className='button-started-card forward' type='button'>Get Started</button>
+                            </section>
+                            <section className='bot-card'>
+                                <img src='img/discord-icon.png' alt='Slack chat logo' />
+                                <h4 className='bots-card-header'>Discord</h4>
+                                <p className='bots-secondary-text'>Track your deadlines through the Discord chatbot for free.</p>
+                                <p className='bots-secondary-text'>Bot is released in near future.</p>
+                                <button className='button-started-card forward' type='button'>Get Started</button>
+                            </section>
+                        </div>
                     </div>
                 </div>
 
