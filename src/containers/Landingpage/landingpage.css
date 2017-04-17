@@ -213,3 +213,27 @@
     color: #242B2A;
     font-size: 1.25rem;
 }
+
+footer {
+    background-color: #242B2A;
+}
+
+.footer-flex-container {
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1040px;
+    padding: 150px 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+footer h3 {
+    font-weight: 300;
+    font-size: 33px;
+    margin: 100px 0 0 0;
+}

@@ -86,6 +86,13 @@ export default class Landingpage extends Component {
                     </div>
                 </div>
 
+                <footer>
+                    <div className='footer-flex-container'>
+                        <h3>Get started today.</h3>
+                        <p>Awesome Deadlines makes things extremely easy. Simple, so you can focus on more important things.</p>
+                    </div>
+                </footer>
+
             </div>
         )
     }
