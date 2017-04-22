@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Account icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Dashboard-UI" transform="translate(-49.000000, -148.000000)" stroke="#919896" stroke-width="2.39999986">
+            <g id="Sidebar">
+                <g id="Links" transform="translate(33.000000, 64.000000)">
+                    <g id="Account" transform="translate(14.000000, 86.000000)">
+                        <g id="Account-icon" transform="translate(4.000000, 0.000000)">
+                            <path d="M0,2.4 L4.95238095,2.4" id="Stroke-404"></path>
+                            <polygon id="Stroke-406" points="4.95238095 4.8 12.3809524 4.8 12.3809524 0 4.95238095 0"></polygon>
+                            <path d="M12.3809524,2.4 L26,2.4" id="Stroke-408"></path>
+                            <path d="M26,12 L21.047619,12" id="Stroke-409"></path>
+                            <polygon id="Stroke-410" points="13.6190476 14.4 21.047619 14.4 21.047619 9.6 13.6190476 9.6"></polygon>
+                            <path d="M13.6190476,12 L0,12" id="Stroke-411"></path>
+                            <path d="M0,21.6 L4.95238095,21.6" id="Stroke-412"></path>
+                            <polygon id="Stroke-413" points="4.95238095 24 12.3809524 24 12.3809524 19.2 4.95238095 19.2"></polygon>
+                            <path d="M12.3809524,21.6 L26,21.6" id="Stroke-414"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

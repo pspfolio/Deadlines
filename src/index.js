@@ -16,7 +16,7 @@ function requireAuth(nextState, replace) {
 }
 
 ReactDOM.render(
- (
+(
   <Router history={ browserHistory }>
     <Route path='/' component={ Landingpage } />
     <Route path='/dashboard' component={ App }>
@@ -26,5 +26,5 @@ ReactDOM.render(
     </Route>
   </Router>
   ),
- document.getElementById('root')
+document.getElementById('root')
 );

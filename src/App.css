@@ -1,0 +1,12 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+}
+.navigation {
+    flex: 0;
+    min-width: 130px;
+}
+
+.container {
+    flex: 1;
+}
