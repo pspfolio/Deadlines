@@ -42,7 +42,7 @@ export default class LogIn extends Component {
     const buttonDisabled = !this.state.username || !this.state.password;
     return(
       <div>
-        <section className='nav-flex-container'>
+        <section className='nav-login-flex-container'>
           <h1>DEADLINES</h1>
         </section>
         <section className='login-container'>

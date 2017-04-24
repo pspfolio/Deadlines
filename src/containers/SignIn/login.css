@@ -1,4 +1,4 @@
-.nav-flex-container {
+.nav-login-flex-container {
     z-index: 99999;
     display: flex;
     width: 100%;
@@ -7,7 +7,7 @@
     padding-top: 50px;
 }
 
-.nav-flex-container h1 {
+.nav-login-flex-container h1 {
     font-size: 1rem;
     font-weight: 500;
     color: #B0B7B5;

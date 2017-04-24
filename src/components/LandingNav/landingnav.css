@@ -10,23 +10,23 @@
     color: #919896;
 }
 
-nav ul {
+.landing-nav-flex-container ul {
     display: flex;
     justify-content: space-between;
 }
 
-nav ul li {
+.landing-nav-flex-container ul li {
     font-size: .8rem;
     list-style-type: none;
     padding: 0 30px;
     font-weight: 300;
 }
 
-nav ul li a {
+.landing-nav-flex-container ul li a {
     text-decoration: none;
     color: white;
 }
 
-nav ul li:first-child {
+.landing-nav-flex-container ul li:first-child {
     font-weight: 400;
 }
