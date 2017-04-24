@@ -1,0 +1,32 @@
+.landing-nav-flex-container {
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1040px;
+    padding-top: 50px;
+    justify-content: space-between;
+    color: #919896;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    font-size: .8rem;
+    list-style-type: none;
+    padding: 0 30px;
+    font-weight: 300;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li:first-child {
+    font-weight: 400;
+}

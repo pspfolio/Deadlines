@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import LandingNav from '../../components/LandingNav';
 import './landingpage.css';
 
 export default class Landingpage extends Component {
@@ -7,15 +7,7 @@ export default class Landingpage extends Component {
         return (
             <div className='content-wrapper'>
                 <header className='content-header'>
-                    <nav className='landing-flex-container space-between'>
-                        <div className='main-logo forward'>
-                            DEADLINES
-                        </div>
-                        <ul>
-                            <li className='forward'>Get Started</li>
-                            <li className='forward'><Link to='/login'>Sign in -></Link></li>
-                        </ul>
-                    </nav>
+                    <LandingNav />
 
                     <section id='header-text' className='landing-flex-container space-between'>
                         <h1 className='forward'>Are you ready to hit your deadlines?</h1>

@@ -4,7 +4,7 @@ import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
 import App from './App';
 import Landingpage from './containers/Landingpage';
 import Dashboard from './containers/Dashboard';
-import Login from './components/LogIn';
+import SignIn from './containers/SignIn';
 import Deadline from './containers/Deadline';
 import { isAuthenticated } from './utils/AuthService';
 import './index.css';
@@ -19,9 +19,9 @@ ReactDOM.render(
 (
   <Router history={ browserHistory }>
     <Route path='/' component={ Landingpage } />
+    <Route path='/login' component={ SignIn } />
     <Route path='/dashboard' component={ App }>
       <IndexRoute component={ Dashboard } onEnter={ requireAuth } />
-      <Route path='/login' component={ Login } />
       <Route path='/deadline/:id' component={ Deadline } onEnter={ requireAuth } />
     </Route>
   </Router>

@@ -16,33 +16,16 @@
     padding-top: 50px;
 }
 
+.content-header .main-logo, ul {
+    color: white;
+}
+
 .space-between {
     justify-content: space-between;
 }
 
 .space-around {
     justify-content: space-around;
-}
-
-.content-header nav ul {
-    display: flex;
-    justify-content: space-between;
-}
-
-.content-header nav ul li {
-    font-size: .8rem;
-    list-style-type: none;
-    padding: 0 30px;
-    font-weight: 300;
-}
-
-.content-header nav ul li a {
-    text-decoration: none;
-    color: white;
-}
-
-.content-header nav ul li:first-child {
-    font-weight: 400;
 }
 
 .content-header .main-logo {
