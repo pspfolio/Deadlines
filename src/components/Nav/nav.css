@@ -23,7 +23,7 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  font-size: .8rem;
+  font-size: .7rem;
   letter-spacing: .04rem;
   text-decoration: none;
   color: white;
@@ -31,15 +31,17 @@
 
 .nav-list li img {
   padding: 0 0 7px 0;
+  height: 26px;
 }
 
 .signout {
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: .8rem;
+  font-size: .7rem;
   letter-spacing: .04rem;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .app-header h1 {
