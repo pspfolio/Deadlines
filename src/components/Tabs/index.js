@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 export default class Tabs extends Component {
     constructor() {
+        super();
+
         this.state = {
             selected: 0
         }
@@ -20,11 +22,12 @@ export default class Tabs extends Component {
             <div className='tabs-content'>
                 <ul>
                     {this.props.children.map((child, index) => 
-                        <li key={child} 
-                            onClick={this.handleClick(index)}
-                            className={this.state.selected === index ? 'active' : ''}>
+                        <li key={index} 
+                            onClick={() => {this.handleClick(index)}}
+                            className={this.state.selected === index ? 'active' : ' '}>
                             {child.props.label}
-                        </li>)}
+                        </li>
+                    )}
                 </ul>
                 {this.props.children[this.state.selected]}
             </div>
