@@ -44,10 +44,10 @@ export default class Deadline extends Component {
     const itemsFound = this.state.deadlines.length > 0;
     return (
       <section>
-        <section className='flex-container-dashboard deadlines-list'>
+        {/*<section className='flex-container-dashboard deadlines-list'>
           <h2 className='site-header'>Deadlines</h2>
           <Add handleAddDeadline={this.handleAddDeadline} />
-        </section>
+        </section>*/}
         { loading && <Loading /> }
         { !loading && itemsFound && <DeadlineTable deadlines={this.state.deadlines} /> }
         { !loading && !itemsFound && <NotFound /> }

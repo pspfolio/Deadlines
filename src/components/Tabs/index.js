@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './tabs.css';
 
 export default class Tabs extends Component {
     constructor() {
@@ -20,15 +21,17 @@ export default class Tabs extends Component {
     render() {
         return (
             <div className='tabs-content'>
-                <ul>
-                    {this.props.children.map((child, index) => 
-                        <li key={index} 
-                            onClick={() => {this.handleClick(index)}}
-                            className={this.state.selected === index ? 'active' : ' '}>
-                            {child.props.label}
-                        </li>
-                    )}
-                </ul>
+                <div className='tabs-headers'>
+                    <ul>
+                        {this.props.children.map((child, index) => 
+                            <li key={index} 
+                                onClick={() => {this.handleClick(index)}}
+                                className={this.state.selected === index ? 'active' : ' '}>
+                                {child.props.label}
+                            </li>
+                        )}
+                    </ul>
+                </div>
                 {this.props.children[this.state.selected]}
             </div>
         )

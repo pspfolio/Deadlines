@@ -8,10 +8,10 @@ export default ({ deadlines }) => (
   <div>
   <div>
         <Tabs selected={0}>
-      <Pane label="Tab 1">
+      <Pane label="Deadlines">
         <div>This is tab1 content</div>
       </Pane>
-      <Pane label="Tab 2">
+      <Pane label="History">
         <div>This is tab2 content</div>
       </Pane>
     </Tabs>
