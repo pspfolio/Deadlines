@@ -48,7 +48,7 @@ export default class Deadline extends Component {
         this.setState({ 
             closed: true,
             closedTS: new Date()
-         }, this.updateDeadline);
+        }, this.updateDeadline);
     }
 
     showTempMessage(message) {

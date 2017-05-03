@@ -24,5 +24,10 @@ body {
 .site-header {
   font-weight: 300;
   font-size: 36px;
-  color: #5C5C5C;
+  color: #242B2A;
+  margin: 70px 0 0 80px;
+}
+
+.tab-wrapper {
+  margin-top: 70px;
 }

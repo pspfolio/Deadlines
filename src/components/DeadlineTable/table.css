@@ -8,8 +8,8 @@
 }
 
 table {
-  width: 100%;
-  text-align: left;
+  width: 75%;
+  margin: 0 auto;
   border-collapse: collapse;
 }
 
@@ -25,8 +25,12 @@ tbody tr {
   border-bottom: 1px solid #ECECEC;
 }
 
+tbody tr:last-child {
+  border-bottom: none;
+}
+
 td {
-  padding: 30px 0;
+  padding: 30px;
   font-size: 18px;
   color: #5C5C5C;
 }
