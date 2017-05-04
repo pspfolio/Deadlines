@@ -13,26 +13,26 @@ export default class dlNav extends Component {
           <ul className='nav-list'>
             <li>
               <Link to='/dashboard'>
-                  <img alt='dashboard link icon' src='img/dashboard-icon.svg' />
+                  <img alt='dashboard link icon' src='/img/dashboard-icon.svg' />
                   Dashboard
               </Link>
             </li>
             <li>
               <Link to='/dashboard'>
-                <img alt='dashboard link icon' src='img/account-icon.svg' />
+                <img alt='dashboard link icon' src='/img/account-icon.svg' />
                 Account
               </Link>
             </li>
             <li>
               <Link to='/dashboard'>
-                <img alt='dashboard link icon' src='img/new-icon.svg' />
+                <img alt='dashboard link icon' src='/img/new-icon.svg' />
                 New Deadline
               </Link>
             </li>
           </ul>
           
             <div className='signout' onClick={logout}>
-              <img alt='dashboard link icon' src='img/signout-icon.svg' />
+              <img alt='dashboard link icon' src='/img/signout-icon.svg' />
               <p>Sign out</p>
             </div>
             
