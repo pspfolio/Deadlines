@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ErrorMessage from '../InputErrorMessage/';
-import moment from 'moment';
 import './textinput.css';
 
 export default class TextInput extends Component {
@@ -14,13 +13,11 @@ export default class TextInput extends Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.callIsValid = this.callIsValid.bind(this);
     this.validate = this.validate.bind(this);
   }
 
   handleInputChange(event) {
     this.validate(event.target.value);
-
     this.props.onChange(event);
   }
 
@@ -35,31 +32,12 @@ export default class TextInput extends Component {
       errorMessage = this.props.errorMessage;
     }
 
-    if(this.props.date && !moment(value, 'DD.MM.YYYY', true).isValid()) {
-      valid = false;
-      errorVisible = true;
-      errorMessage = this.props.validationErrorMessage;
-    }
-
-    this.callIsValid(valid, this.props.name);
-
     this.setState({
       value,
       valid,
       errorVisible,
       errorMessage
     });
-  }
-
-  callIsValid(valid, name) {
-    console.log("call is valid")
-    const { handleIsValid } = this.props;
-
-    if(handleIsValid) {
-      var test = {name, valid};
-      console.log(test);
-      handleIsValid(test);
-    }
   }
   
   render() {
