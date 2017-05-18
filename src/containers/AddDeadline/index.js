@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from '../../components/TextInput';
+import moment from 'moment';
 import { addDeadline } from '../../utils/DeadlineService';
 
 export default class AddDeadline extends Component {
@@ -7,11 +8,14 @@ export default class AddDeadline extends Component {
         super();
 
         this.state = {
-            projectValid: false
+            project: '',
+            customer: '',
+            deadline: ''
         }
 
         this.handleAddDeadline = this.handleAddDeadline.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
 
     handleInputChange(event) {
@@ -23,14 +27,21 @@ export default class AddDeadline extends Component {
     }
 
     handleAddDeadline(obj) {
+        console.log("addddding")
         addDeadline(obj).then((result) => {
 
         })
     }
+
+    validateForm() {
+        const validDate = moment(this.state.deadline, 'DD.MM.YYYY', true).isValid();
+        return validDate && this.state.project.length > 0 && this.state.customer.length > 0;
+    }
+
     render() {
         return (
             <div className='login-form'>
-                <form>
+                <form onSubmit={ this.handleAddDeadline }>
                     <TextInput
                         label='Project name'
                         errorMessage='Project name is required'
@@ -57,6 +68,10 @@ export default class AddDeadline extends Component {
                         onChange={this.handleInputChange}
                         placeholder='Deadline date'
                         required={true} />
+
+                        <button 
+                            disabled={ !this.validateForm() } 
+                            className='login-btn'>Add</button>
                 </form>
             </div>
         )
