@@ -8,7 +8,7 @@ export default class AddDeadline extends Component {
         super();
 
         this.state = {
-            project: '',
+            name: '',
             customer: '',
             deadline: ''
         }
@@ -26,16 +26,22 @@ export default class AddDeadline extends Component {
         });
     }
 
-    handleAddDeadline(obj) {
-        console.log("addddding")
-        addDeadline(obj).then((result) => {
+    handleAddDeadline(event) {
+        event.preventDefault();
+        const deadline = {
+            name: this.state.name,
+            customer: this.state.customer,
+            deadline: this.state.deadline
+        }
 
+        addDeadline(deadline).then((result) => {
+            console.log("DONE");
         })
     }
 
     validateForm() {
         const validDate = moment(this.state.deadline, 'DD.MM.YYYY', true).isValid();
-        return validDate && this.state.project.length > 0 && this.state.customer.length > 0;
+        return validDate && this.state.name.length > 0 && this.state.customer.length > 0;
     }
 
     render() {
@@ -43,35 +49,31 @@ export default class AddDeadline extends Component {
             <div className='login-form'>
                 <form onSubmit={ this.handleAddDeadline }>
                     <TextInput
-                        label='Project name'
+                        label='Project'
                         errorMessage='Project name is required'
-                        placeholder='Project1'
-                        name='project'
-                        onChange={this.handleInputChange}
+                        name='name'
+                        placeholder='Project name'
                         type='text'
-                        handleIsValid={this.handleIsValid}
+                        onChange={ this.handleInputChange }
                         required={true} />
                     <TextInput
                         label='Customer'
                         errorMessage='Customer is required'
                         name='customer'
-                        type='text'
-                        onChange={this.handleInputChange}
                         placeholder='Customer name'
-                        required={true} />
+                        type='text'
+                        onChange={ this.handleInputChange }
+                        required={ true } />
                     <TextInput
                         label='Deadline'
                         errorMessage='Deadline is required'
-                        validationErrorMessage='Not valid value'
                         name='deadline'
+                        placeholder='11.02.2018'
                         type='text'
-                        onChange={this.handleInputChange}
-                        placeholder='Deadline date'
-                        required={true} />
+                        onChange={ this.handleInputChange }
+                        required={ true } />
 
-                        <button 
-                            disabled={ !this.validateForm() } 
-                            className='login-btn'>Add</button>
+                        <button disabled={ !this.validateForm() } className='login-btn'>Add</button>
                 </form>
             </div>
         )
