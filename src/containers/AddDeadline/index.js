@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextInput from '../../components/TextInput';
 import moment from 'moment';
 import { addDeadline } from '../../utils/DeadlineService';
+import './adddeadline.css';
 
 export default class AddDeadline extends Component {
     constructor() {
@@ -46,36 +47,38 @@ export default class AddDeadline extends Component {
 
     render() {
         return (
-            <div className='login-form'>
-                <form onSubmit={ this.handleAddDeadline }>
-                    <TextInput
-                        label='Project'
-                        errorMessage='Project name is required'
-                        name='name'
-                        placeholder='Project name'
-                        type='text'
-                        onChange={ this.handleInputChange }
-                        required={true} />
-                    <TextInput
-                        label='Customer'
-                        errorMessage='Customer is required'
-                        name='customer'
-                        placeholder='Customer name'
-                        type='text'
-                        onChange={ this.handleInputChange }
-                        required={ true } />
-                    <TextInput
-                        label='Deadline'
-                        errorMessage='Deadline is required'
-                        name='deadline'
-                        placeholder='11.02.2018'
-                        type='text'
-                        onChange={ this.handleInputChange }
-                        required={ true } />
+            <section className='flex-container-add'>
+                <div className='login-form'>
+                    <form onSubmit={this.handleAddDeadline}>
+                        <TextInput
+                            label='Project'
+                            errorMessage='Project name is required'
+                            name='name'
+                            placeholder='Project name'
+                            type='text'
+                            onChange={this.handleInputChange}
+                            required={true} />
+                        <TextInput
+                            label='Customer'
+                            errorMessage='Customer is required'
+                            name='customer'
+                            placeholder='Customer name'
+                            type='text'
+                            onChange={this.handleInputChange}
+                            required={true} />
+                        <TextInput
+                            label='Deadline'
+                            errorMessage='Deadline is required'
+                            name='deadline'
+                            placeholder='11.02.2018'
+                            type='text'
+                            onChange={this.handleInputChange}
+                            required={true} />
 
-                        <button disabled={ !this.validateForm() } className='login-btn'>Add</button>
-                </form>
-            </div>
+                        <button disabled={!this.validateForm()} className='login-btn'>Add</button>
+                    </form>
+                </div>
+            </section>
         )
     }
 }
