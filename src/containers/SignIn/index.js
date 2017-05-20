@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from '../../components/TextInput';
+import PreText from '../../components/PreText';
 import { browserHistory } from 'react-router';
 import { login, setToken } from '../../utils/AuthService.js';
 import './login.css';
@@ -46,10 +47,7 @@ export default class LogIn extends Component {
           <h1>DEADLINES</h1>
         </section>
         <section className='login-container'>
-          <section className='login-text'>
-            <h2>Sign In</h2>
-            <p className='text'>Hello, nice to see you again</p>
-          </section>
+          <PreText header='Sign In' text='Hello, nice to see you again'/>
           { this.state.signUpError ? <p className='error'>The email address and/or password you entered was invalid.</p> : null }
           <div className='login-form'>
             <form>

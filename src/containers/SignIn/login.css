@@ -13,13 +13,6 @@
     color: #B0B7B5;
 }
 
-.login-text h2 {
-  color: #8392FB;
-  font-weight: 300;
-  font-size: 1.5em;
-  margin: 0;
-}
-
 .login-container {
   height: 80vh;
   width: 100vw;
@@ -29,21 +22,8 @@
   flex-direction: column;
 }
 
-.login-container .text {
-  font-weight: 300;
-  color: #919896;
-  text-align: left;
-  font-size: 18px;
-}
-
 .login-form {
   width: 25%;
-}
-
-.login-text {
-  width: 25%;
-  text-align: left;
-  margin-bottom: 2em;
 }
 
 .login-btn {
@@ -52,10 +32,9 @@
   margin: 25px auto;
   background: #8392FB;
   border-radius: 5px;
-  height: 40px;
-  font-size: 12px;
+  font-size: 14px;
   color: #fff;
-  padding: 0 30px;
+  padding: 15px 30px;
   outline: 0;
   border: none;
   letter-spacing: .08em;

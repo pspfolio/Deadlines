@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from '../../components/TextInput';
+import PreText from '../../components/PreText';
 import moment from 'moment';
 import { addDeadline } from '../../utils/DeadlineService';
 import './adddeadline.css';
@@ -48,6 +49,7 @@ export default class AddDeadline extends Component {
     render() {
         return (
             <section className='flex-container-add'>
+                <PreText header='Add project' text='Fill the inputs and press Add button' />
                 <div className='login-form'>
                     <form onSubmit={this.handleAddDeadline}>
                         <TextInput
@@ -67,7 +69,7 @@ export default class AddDeadline extends Component {
                             onChange={this.handleInputChange}
                             required={true} />
                         <TextInput
-                            label='Deadline'
+                            label='Deadline (DD.MM.YYYY)'
                             errorMessage='Deadline is required'
                             name='deadline'
                             placeholder='11.02.2018'
@@ -75,7 +77,7 @@ export default class AddDeadline extends Component {
                             onChange={this.handleInputChange}
                             required={true} />
 
-                        <button disabled={!this.validateForm()} className='login-btn'>Add</button>
+                        <button disabled={!this.validateForm()} className='login-btn'>Add project</button>
                     </form>
                 </div>
             </section>

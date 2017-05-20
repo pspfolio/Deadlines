@@ -1,0 +1,19 @@
+.pre-text {
+    width: 25%;
+    text-align: left;
+    margin-bottom: 2em;
+}
+
+.pre-text h2 {
+    color: #8392FB;
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.pre-text p {
+    font-weight: 300;
+    color: #919896;
+    text-align: left;
+    font-size: 18px;
+}
