@@ -11,18 +11,29 @@ export default class dlNav extends Component {
         {isAuthenticated() ?
         <div className='nav-flex-container'>
           <ul className='nav-list'>
+            <li id='nav-logo'>
+              <img alt="deadlines logo" src="/img/Logo.svg" />
+            </li>
             <li>
-              <Link to='/dashboard'>
-                  <img alt='dashboard link icon' src='/img/dashboard.svg' />
+              <Link activeClassName="active" to='/dashboard'>
                   Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link activeClassName="active" to='/deadline'>
+                  Deadlines
+              </Link>
+            </li>
+            <li>
+              <Link activeClassName="active" to='/deadline/add'>
+                  Add
               </Link>
             </li>
           </ul>
           
-            <div className='signout' onClick={logout}>
-              <img alt='dashboard link icon' src='/img/signout-icon.svg' />
-              <p>Sign out</p>
-            </div>
+          <div className='signout' onClick={logout}>
+            <p>Logout</p>
+          </div>
             
         </div>
         : null}
