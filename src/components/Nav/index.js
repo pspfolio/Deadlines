@@ -7,26 +7,14 @@ import './nav.css';
 export default class dlNav extends Component {
   render() {
     return (
-      <nav className='app-header'>
+      <nav className='nav-header'>
         {isAuthenticated() ?
         <div className='nav-flex-container'>
           <ul className='nav-list'>
             <li>
               <Link to='/dashboard'>
-                  <img alt='dashboard link icon' src='/img/dashboard-icon.svg' />
+                  <img alt='dashboard link icon' src='/img/dashboard.svg' />
                   Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link to='/dashboard'>
-                <img alt='dashboard link icon' src='/img/account-icon.svg' />
-                Account
-              </Link>
-            </li>
-            <li>
-              <Link to='/dashboard'>
-                <img alt='dashboard link icon' src='/img/new-icon.svg' />
-                New Deadline
               </Link>
             </li>
           </ul>

@@ -1,10 +1,11 @@
 .main {
     min-height: 100vh;
     display: flex;
+    background-color: #F2F4F6;
 }
 .navigation {
     flex: 0;
-    min-width: 115px;
+    min-width: 200px;
 }
 
 .container {

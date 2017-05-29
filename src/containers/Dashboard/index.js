@@ -40,7 +40,7 @@ export default class Deadline extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <section>
+      <section className='deadlines-container'>
         <h2 className='site-header'>Deadlines</h2>
         { loading && <Loading /> }
         { !loading && 
