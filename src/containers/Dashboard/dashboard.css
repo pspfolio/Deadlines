@@ -1,33 +1,17 @@
-body {
-  -webkit-font-smoothing: antialiased;
-}
-
-.flex-container-dashboard {
-    margin: 100px auto 0 auto;
-    display: flex;
-    max-width: 1300px;
-    font-family: 'Roboto', sans-serif;
-    padding: 0 100px;
-}
-
-.deadlines-list{
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #ececec;
-}
-
-.not-found {
-  flex-direction: column;
-  align-items: center;
+.deadlines-container {
+  background-color: #fff;
+  width: 80%;
+  margin: 90px auto 0px auto;
+  padding: 30px 60px;
 }
 
 .site-header {
-  font-weight: 300;
-  font-size: 36px;
-  color: #333;
+  font-weight: 700;
+  font-size: 20px;
+  color: #2D2C38;
   margin: 70px 0 0 80px;
 }
 
-.tab-wrapper {
+.deadlines-wrapper {
   margin-top: 70px;
 }

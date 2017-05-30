@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import DeadlineTable from '../../components/DeadlineTable';
 import NotFound from '../../components/NotFound';
 import Loading from '../../components/Loading';
-import Tabs from '../../components/Tabs';
-import Pane from '../../components/Pane';
 import { loadDeadlines } from '../../utils/DeadlineService';
 import './dashboard.css';
 
@@ -12,8 +10,7 @@ export default class Deadline extends Component {
     super();
 
     this.state = {
-      deadlinesActive: [],
-      deadlinesClosed: [],
+      deadlines: [],
       loading: false
     }
 
@@ -26,39 +23,25 @@ export default class Deadline extends Component {
   }
 
   initDeadlines(deadlines) {
-    const deadlinesActive = deadlines.filter(deadline => !deadline.closed);
-    const deadlinesClosed = deadlines.filter(deadline => deadline.closed);
-
     this.setState({
-      deadlinesActive,
-      deadlinesClosed,
+      deadlines,
       loading: false
     });
-
   }
 
   render() {
     const { loading } = this.state;
     return (
       <section className='deadlines-container'>
-        <h2 className='site-header'>Deadlines</h2>
+        <h2 className='site-header'>Active deadlines</h2>
         { loading && <Loading /> }
         { !loading && 
-          <div className='tab-wrapper'>
-            <Tabs selected={0}>
-              <Pane label="Deadlines">
-                { this.state.deadlinesActive.length > 0 ? 
-                  <DeadlineTable deadlines={this.state.deadlinesActive} /> : 
-                  <NotFound />
-                }
-              </Pane>
-              <Pane label="History">
-                { this.state.deadlinesClosed.length > 0 ?
-                  <DeadlineTable deadlines={this.state.deadlinesClosed} /> :
-                  <NotFound />
-                }
-              </Pane>
-            </Tabs>
+          <div className='deadlines-wrapper'>
+            { 
+              this.state.deadlines.length > 0 ? 
+              <DeadlineTable deadlines={this.state.deadlines} /> : 
+              <NotFound />
+            }
           </div>
         }
       </section>

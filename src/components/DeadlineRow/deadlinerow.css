@@ -1,9 +1,10 @@
 .deadline-name a {
-    color: #8392FB;
+    color: #686871;
+    font-weight: 700;
     text-decoration: none;
-    transition: text-decoration .5s ease-in-out;
+    transition: color .3s ease-in-out;
 }
 
 .deadline-name a:hover {
-    text-decoration: underline;
+    color: #5B6FFD;
 }
