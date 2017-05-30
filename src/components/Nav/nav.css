@@ -21,11 +21,17 @@
   margin-top: 2rem;
 }
 
+.nav-list li:last-child {
+  border-top: 1px solid #E2E2E2;
+  padding-top: 2rem;
+}
+
 .nav-list li a {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
   color: #686871;
+  cursor: pointer;
 }
 
 .nav-list li .active {

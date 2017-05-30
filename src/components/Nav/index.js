@@ -29,11 +29,13 @@ export default class dlNav extends Component {
                   Add
               </Link>
             </li>
+            <li>
+              <Link activeClassName="active" onClick={ logout }>
+                  Logout
+              </Link>
+            </li>
           </ul>
           
-          <div className='signout' onClick={logout}>
-            <p>Logout</p>
-          </div>
             
         </div>
         : null}
