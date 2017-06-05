@@ -1,0 +1,22 @@
+.filter-section {
+    display: flex;
+}
+
+.filter {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-left: 40px;
+}
+
+.filter-all {
+    background-color: #5B6FFD;
+}
+
+.filter-active {
+    background-color: #22B100;
+}
+
+.filter-completed {
+    background-color: #E60000;
+}
