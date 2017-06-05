@@ -20,7 +20,7 @@ export default class dlNav extends Component {
               </Link>
             </li>
             <li>
-              <Link activeClassName="active" to='/deadline'>
+              <Link activeClassName="active" to='/deadlines'>
                   Deadlines
               </Link>
             </li>

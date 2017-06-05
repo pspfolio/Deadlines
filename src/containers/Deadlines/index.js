@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import DeadlineTable from '../DeadlineTable';
-import NotFound from '../NotFound';
-import Loading from '../Loading';
+import DeadlineTable from '../../components/DeadlineTable';
+import NotFound from '../../components/NotFound';
+import Loading from '../../components/Loading';
+import { Link } from 'react-router';
 import { loadDeadlines } from '../../utils/DeadlineService';
-//import './dashboard.css';
+import './deadlines.css';
 
-export default class Deadline extends Component {
+export default class Deadlines extends Component {
     constructor() {
         super();
 
@@ -23,17 +24,21 @@ export default class Deadline extends Component {
     }
 
     initDeadlines(deadlines) {
+        const { count } = this.props;
+        const result = count && deadlines.length > count ? deadlines.slice(0, count) : deadlines;
+
         this.setState({
-            deadlines,
+            deadlines: result,
             loading: false
         });
     }
 
     render() {
         const { loading } = this.state;
+        const { headline } = this.props;
         return (
             <section className='deadlines-container'>
-                <h2 className='site-header'>Priority deadlines</h2>
+                <h2 className='site-header'>{ headline }</h2>
                 {loading && <Loading />}
                 {!loading &&
                     <div className='deadlines-wrapper'>
@@ -43,6 +48,9 @@ export default class Deadline extends Component {
                         }
                     </div>
                 }
+                <div className="deadlines-links">
+                    <Link className="deadlines-readmore" to="/deadlines">More...</Link>
+                </div>
             </section>
         )
     }
