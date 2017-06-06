@@ -7,16 +7,17 @@
     width: 10px;
     border-radius: 50%;
     margin-left: 40px;
+    background-color: #686871;
 }
 
-.filter-all {
+.filter-all.active {
     background-color: #5B6FFD;
 }
 
-.filter-active {
+.filter-active.active {
     background-color: #22B100;
 }
 
-.filter-completed {
+.filter-completed.active {
     background-color: #E60000;
 }
