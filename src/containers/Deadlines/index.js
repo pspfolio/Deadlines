@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DeadlineTable from '../../components/DeadlineTable';
 import NotFound from '../../components/NotFound';
 import Loading from '../../components/Loading';
-import FilterIndicator from '../../components/FilterIndicator';
+import Filter from '../../components/Filter';
 import { Link } from 'react-router';
 import { loadDeadlines } from '../../utils/DeadlineService';
 import './deadlines.css';
@@ -13,10 +13,12 @@ export default class Deadlines extends Component {
 
         this.state = {
             deadlines: [],
+            selectedFilter: 'All',
             loading: false
         }
 
         this.initDeadlines = this.initDeadlines.bind(this);
+        this.updateFilter = this.updateFilter.bind(this);
     }
 
     componentDidMount() {
@@ -34,12 +36,19 @@ export default class Deadlines extends Component {
         });
     }
 
+    updateFilter(filter) {
+        console.log(filter);
+        this.setState({
+            selectedFilter: filter
+        });
+    }
+
     render() {
         const { loading } = this.state;
         const { headline, count } = this.props;
         return (
             <section className='deadlines-container'>
-                <FilterIndicator />
+                <Filter selectedFilter={ this.state.selectedFilter } updateFilter={ this.updateFilter } />
                 <h2 className='site-header'>{ headline ? headline : 'Deadlines' }</h2>
                 {loading && <Loading />}
                 {!loading &&
