@@ -19,6 +19,10 @@ export default class Deadlines extends Component {
 
         this.initDeadlines = this.initDeadlines.bind(this);
         this.updateFilter = this.updateFilter.bind(this);
+
+        /* TODO: getByCount ja filterDeadlines alemmille kerroksille / rajapintaan */ 
+        this.getDeadlinesByCount = this.getDeadlinesByCount.bind(this);
+        this.filterDeadlines = this.filterDeadlines.bind(this);
     }
 
     componentDidMount() {
@@ -26,37 +30,49 @@ export default class Deadlines extends Component {
         loadDeadlines().then(this.initDeadlines);
     }
 
-    initDeadlines(deadlines) {
+    initDeadlines(data) {
         const { count } = this.props;
-        const result = count && deadlines.length > count ? deadlines.slice(0, count) : deadlines;
+        const result = count && data.length > count ? this.getDeadlinesByCount(count, data) : this.filterDeadlines();
         this.setState({
             deadlines: result,
             loading: false
         });
     }
 
+    getDeadlinesByCount(num, list) {
+        console.log("deadlines by count", num);
+        const result = list.slice(0, num);
+        console.log("SCLIEC", result);
+        return result;
+    }
+
+    filterDeadlines() {
+        console.log("FILTEEERS")
+    }
+
     updateFilter(filter) {
-        console.log(filter);
         this.setState({
             selectedFilter: filter
         });
     }
 
     render() {
-        const { loading } = this.state;
+        const { loading, deadlines, selectedFilter  } = this.state;
+        console.log(deadlines);
         const { headline, count } = this.props;
         return (
             <section className='deadlines-container'>
                 { !count && <Filter selectedFilter={ this.state.selectedFilter } updateFilter={ this.updateFilter } /> }
                 <h2 className='site-header'>{ headline ? headline : 'Deadlines' }</h2>
-                {loading && <Loading />}
-                {!loading &&
-                    <div className='deadlines-wrapper'>
-                        {this.state.deadlines.length > 0 ?
-                            <DeadlineTable deadlines={ this.state.deadlines } /> :
-                            <NotFound />
-                        }
-                    </div>
+                
+                { loading ? <Loading /> 
+                        : 
+                        <div className='deadlines-wrapper'>
+                            {deadlines.length > 0 ?
+                                <DeadlineTable deadlines={ this.state.deadlines } /> :
+                                <NotFound />
+                            }
+                        </div>
                 }
 
                 {count && 
