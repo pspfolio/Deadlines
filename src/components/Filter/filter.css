@@ -1,12 +1,21 @@
 .filter-section {
     display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    color: #686871;
 }
 
-.filter {
+.filter-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-icon {
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    margin-left: 40px;
+    margin: 0 10px 0 40px;
     background-color: #686871;
 }
 

@@ -9,7 +9,7 @@ export default ({ updateFilter, selectedFilter}) => {
                 filters.map((filter) => {
                     const active = selectedFilter === filter ? 'active' : '';
                     return (
-                        <li key={filter} onClick={ updateFilter.bind(null, filter) }><div className={`filter filter-${filter.toLowerCase()} ${active}`}>{filter}</div></li>
+                        <li className='filter-item' key={filter} onClick={ updateFilter.bind(null, filter) }><div className={`filter-icon filter-${filter.toLowerCase()} ${active}`}></div>{filter}</li>
                     )
                 })
             }

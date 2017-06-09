@@ -29,7 +29,6 @@ export default class Deadlines extends Component {
     initDeadlines(deadlines) {
         const { count } = this.props;
         const result = count && deadlines.length > count ? deadlines.slice(0, count) : deadlines;
-        console.log(result);
         this.setState({
             deadlines: result,
             loading: false
@@ -48,7 +47,7 @@ export default class Deadlines extends Component {
         const { headline, count } = this.props;
         return (
             <section className='deadlines-container'>
-                <Filter selectedFilter={ this.state.selectedFilter } updateFilter={ this.updateFilter } />
+                { !count && <Filter selectedFilter={ this.state.selectedFilter } updateFilter={ this.updateFilter } /> }
                 <h2 className='site-header'>{ headline ? headline : 'Deadlines' }</h2>
                 {loading && <Loading />}
                 {!loading &&
