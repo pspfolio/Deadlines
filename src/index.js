@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory, Router, Route, IndexRoute  } from 'react-router';
+import { browserHistory, Router, Route  } from 'react-router';
 import App from './App';
 import Landingpage from './containers/Landingpage';
 import Dashboard from './containers/Dashboard';

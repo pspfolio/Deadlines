@@ -19,6 +19,7 @@ export default class Deadlines extends Component {
 
         this.initDeadlines = this.initDeadlines.bind(this);
         this.updateFilter = this.updateFilter.bind(this);
+        this.getDeadlines = this.getDeadlines.bind(this);
 
         /* TODO: getByCount ja filterDeadlines alemmille kerroksille / rajapintaan */ 
         this.getDeadlinesByCount = this.getDeadlinesByCount.bind(this);
@@ -26,13 +27,13 @@ export default class Deadlines extends Component {
     }
 
     componentDidMount() {
-        this.setState({ loading: true })
-        loadDeadlines().then(this.initDeadlines);
+        this.getDeadlines();
     }
 
     initDeadlines(data) {
         const { count } = this.props;
-        const result = count && data.length > count ? this.getDeadlinesByCount(count, data) : this.filterDeadlines();
+        const result = (count && data.length > count) ? this.getDeadlinesByCount(count, data) : this.filterDeadlines(data);
+        console.log(result);
         this.setState({
             deadlines: result,
             loading: false
@@ -40,36 +41,48 @@ export default class Deadlines extends Component {
     }
 
     getDeadlinesByCount(num, list) {
-        console.log("deadlines by count", num);
         const result = list.slice(0, num);
-        console.log("SCLIEC", result);
         return result;
     }
 
-    filterDeadlines() {
-        console.log("FILTEEERS")
+    filterDeadlines(data) {
+        console.log(data);
+        switch(this.state.selectedFilter) {
+            case 'Active' :
+                return data.filter(item => !item.closed)
+            case 'Completed':
+                return data.filter(item => item.closed)
+            default:
+                return data;
+        }
+    }
+
+    getDeadlines() {
+        this.setState({ loading: true })
+        loadDeadlines().then(this.initDeadlines);
     }
 
     updateFilter(filter) {
         this.setState({
             selectedFilter: filter
         });
+
+        this.getDeadlines();
     }
 
     render() {
         const { loading, deadlines, selectedFilter  } = this.state;
-        console.log(deadlines);
         const { headline, count } = this.props;
         return (
             <section className='deadlines-container'>
-                { !count && <Filter selectedFilter={ this.state.selectedFilter } updateFilter={ this.updateFilter } /> }
+                { !count && <Filter selectedFilter={ selectedFilter } updateFilter={ this.updateFilter } /> }
                 <h2 className='site-header'>{ headline ? headline : 'Deadlines' }</h2>
                 
                 { loading ? <Loading /> 
                         : 
                         <div className='deadlines-wrapper'>
                             {deadlines.length > 0 ?
-                                <DeadlineTable deadlines={ this.state.deadlines } /> :
+                                <DeadlineTable deadlines={ deadlines } /> :
                                 <NotFound />
                             }
                         </div>

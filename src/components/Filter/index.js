@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './filter.css';
 
 export default ({ updateFilter, selectedFilter}) => {
