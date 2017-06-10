@@ -4,7 +4,7 @@ import NotFound from '../../components/NotFound';
 import Loading from '../../components/Loading';
 import Filter from '../../components/Filter';
 import { Link } from 'react-router';
-import { loadDeadlines } from '../../utils/DeadlineService';
+import { loadDeadlinesByCount, loadDeadlinesByFilter } from '../../utils/DeadlineService';
 import './deadlines.css';
 
 export default class Deadlines extends Component {
@@ -20,54 +20,29 @@ export default class Deadlines extends Component {
         this.initDeadlines = this.initDeadlines.bind(this);
         this.updateFilter = this.updateFilter.bind(this);
         this.getDeadlines = this.getDeadlines.bind(this);
-
-        /* TODO: getByCount ja filterDeadlines alemmille kerroksille / rajapintaan */ 
-        this.getDeadlinesByCount = this.getDeadlinesByCount.bind(this);
-        this.filterDeadlines = this.filterDeadlines.bind(this);
     }
 
     componentDidMount() {
         this.getDeadlines();
     }
 
-    initDeadlines(data) {
-        const { count } = this.props;
-        const result = (count && data.length > count) ? this.getDeadlinesByCount(count, data) : this.filterDeadlines(data);
-        console.log(result);
+    initDeadlines(deadlines) {
         this.setState({
-            deadlines: result,
+            deadlines,
             loading: false
         });
-    }
-
-    getDeadlinesByCount(num, list) {
-        const result = list.slice(0, num);
-        return result;
-    }
-
-    filterDeadlines(data) {
-        console.log(data);
-        switch(this.state.selectedFilter) {
-            case 'Active' :
-                return data.filter(item => !item.closed)
-            case 'Completed':
-                return data.filter(item => item.closed)
-            default:
-                return data;
-        }
-    }
-
-    getDeadlines() {
-        this.setState({ loading: true })
-        loadDeadlines().then(this.initDeadlines);
     }
 
     updateFilter(filter) {
         this.setState({
             selectedFilter: filter
-        });
+        }, this.getDeadlines);
+    }
 
-        this.getDeadlines();
+    getDeadlines() {
+        this.setState({ loading: true })
+        this.props.count ? loadDeadlinesByCount(this.props.count).then(this.initDeadlines) : 
+                loadDeadlinesByFilter(this.state.selectedFilter).then(this.initDeadlines);
     }
 
     render() {
