@@ -9,6 +9,8 @@ import Deadline from './containers/Deadline';
 import AddDeadline from './containers/AddDeadline';
 import Deadlines from './containers/Deadlines';
 import { isAuthenticated } from './utils/AuthService';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './index.css';
 
 function requireAuth(nextState, replace) {
@@ -17,8 +19,13 @@ function requireAuth(nextState, replace) {
   }
 }
 
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 ReactDOM.render(
 (
+  <MuiThemeProvider>
   <Router history={ browserHistory }>
     <Route path='/' component={ Landingpage } />
     <Route path='/login' component={ SignIn } />
@@ -29,6 +36,7 @@ ReactDOM.render(
       <Route path='/deadline/:id' component={ Deadline } onEnter={ requireAuth } />
     </Route>
   </Router>
+  </MuiThemeProvider>
   ),
 document.getElementById('root')
 );

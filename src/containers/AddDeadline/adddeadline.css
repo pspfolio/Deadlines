@@ -1,5 +1,13 @@
+.add-container {
+    background-color: #fff;
+    width: 80%;
+    margin: 90px auto 0px auto;
+    padding: 30px 60px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .16);
+    border-radius: 5px;
+}
+
 .flex-container-add {
-    height: 80vh;
     display: flex;
     justify-content: center;
     flex-direction: column;

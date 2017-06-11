@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TextInput from '../../components/TextInput';
 import PreText from '../../components/PreText';
 import moment from 'moment';
+import TextFieldMUI from '../../components/TextFieldMUI';
+import TextField from 'material-ui/TextField';
 import { addDeadline } from '../../utils/DeadlineService';
 import './adddeadline.css';
 
@@ -48,39 +50,35 @@ export default class AddDeadline extends Component {
 
     render() {
         return (
-            <section className='flex-container-add'>
-                <PreText header='Add project' text='Fill the inputs and press Add button' />
-                <div className='login-form'>
-                    <form onSubmit={this.handleAddDeadline}>
-                        <TextInput
-                            label='Project'
-                            errorMessage='Project name is required'
-                            name='name'
-                            placeholder='Project name'
-                            type='text'
-                            onChange={this.handleInputChange}
-                            required={true} />
-                        <TextInput
-                            label='Customer'
-                            errorMessage='Customer is required'
-                            name='customer'
-                            placeholder='Customer name'
-                            type='text'
-                            onChange={this.handleInputChange}
-                            required={true} />
-                        <TextInput
-                            label='Deadline (DD.MM.YYYY)'
-                            errorMessage='Deadline is required'
-                            name='deadline'
-                            placeholder='11.02.2018'
-                            type='text'
-                            onChange={this.handleInputChange}
-                            required={true} />
+            <div className='add-container'>
+                <h2 className='site-header'>Add project</h2>
+                <section className='flex-container-add'>
+                    <div className='login-form'>
+                        <form onSubmit={this.handleAddDeadline}>
+                            <TextFieldMUI
+                                onChange={this.handleInputChange}
+                                name='name'
+                                hintText="Awesome project"
+                                labelText="Project name"
+                            />
+                            <TextFieldMUI
+                                onChange={this.handleInputChange}
+                                name='customer'
+                                hintText="Corporation XD"
+                                labelText="Customer"
+                            />
+                            <TextFieldMUI
+                                onChange={this.handleInputChange}
+                                name='deadline'
+                                hintText="11.02.2018"
+                                labelText="Deadline (DD.MM.YYYY)"
+                            />
 
-                        <button disabled={!this.validateForm()} className='login-btn'>Add project</button>
-                    </form>
-                </div>
-            </section>
+                            <button disabled={!this.validateForm()} className='login-btn'>Add</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
         )
     }
 }

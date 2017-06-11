@@ -1,6 +1,6 @@
 .flex-container-table {
   position: relative;
-  margin: 60px auto 0 auto;
+  margin: 60px auto 60px auto;
   display: flex;
   max-width: 1300px;
   align-items: center;
