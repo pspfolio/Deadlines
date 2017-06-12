@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import TextInput from '../../components/TextInput';
-import PreText from '../../components/PreText';
 import moment from 'moment';
 import TextFieldMUI from '../../components/TextFieldMUI';
-import TextField from 'material-ui/TextField';
 import { addDeadline } from '../../utils/DeadlineService';
 import './adddeadline.css';
 

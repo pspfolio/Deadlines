@@ -9,5 +9,6 @@ export default ({ deadline }) => (
     <td>{ deadline.customer }</td>
     <td>{ moment(deadline.deadline).format("DD.MM.YYYY") }</td>
     <td>{ moment(deadline.deadline).fromNow() }</td>
+    <td className={ deadline.closed ? 'completed' : 'active' }>{ deadline.closed ? 'Completed' : 'Active' }</td>
   </tr>
 )

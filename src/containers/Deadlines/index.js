@@ -48,6 +48,7 @@ export default class Deadlines extends Component {
     render() {
         const { loading, deadlines, selectedFilter  } = this.state;
         const { headline, count } = this.props;
+        console.log(deadlines)
         return (
             <section className='deadlines-container'>
                 { !count && <Filter selectedFilter={ selectedFilter } updateFilter={ this.updateFilter } /> }

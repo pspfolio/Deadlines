@@ -11,6 +11,7 @@ export default ({ deadlines }) => (
           <th>Customer</th>
           <th>Deadline</th>
           <th>From now</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>

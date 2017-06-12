@@ -8,3 +8,11 @@
 .deadline-name a:hover {
     color: #5B6FFD;
 }
+
+.completed {
+    color: #E60000;
+}
+
+.active {
+    color: #22B100
+}
