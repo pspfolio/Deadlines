@@ -6,7 +6,7 @@ const styles = {
     floatingLabelFocusStyle: { color: '#5B6FFD'}
 }
 
-export default ({ onChange, name, hintText, labelText}) => (
+export default ({ onChange, name, hintText, labelText, value}) => (
     <TextField
         onChange={ onChange }
         name={ name }
@@ -15,6 +15,7 @@ export default ({ onChange, name, hintText, labelText}) => (
         hintText={ hintText }
         floatingLabelText={ labelText }
         fullWidth={ true }
+        value={value ? value : ''}
         className="test"
     />
 )

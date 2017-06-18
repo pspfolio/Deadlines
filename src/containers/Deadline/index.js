@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { loadDeadline, updateDeadline } from '../../utils/DeadlineService';
-import DeadlineFields from '../../components/DeadlineFields';
+import TextFieldMUI from '../../components/TextFieldMUI';
+import TextData from '../../components/TextData';
+import moment from 'moment';
 import './deadline.css';
 
 export default class Deadline extends Component {
@@ -26,6 +28,7 @@ export default class Deadline extends Component {
     }
 
     handleInputChange(event) {
+        console.log(this.state);
         const value = event.target.value;
         const name = event.target.name;
 
@@ -67,18 +70,38 @@ export default class Deadline extends Component {
     render() {
         return (
             <div className='deadline-container'>
-                <section className='flex-container-header flex-deadline'>
-                    <h2 className='header-deadline'>Project info</h2>
-                </section>
-                    <DeadlineFields 
-                        deadline={ this.state }
-                        handleInputChange={ this.handleInputChange }
-                        projectStatus={ this.projectStatus }
-                        updateDeadline={ this.updateDeadline } />
+                <h2 className='site-header'>Project info</h2>
+                <div className='flex-container-deadline flex-deadline'>
+                    <TextFieldMUI
+                        onChange={this.handleInputChange}
+                        name='name'
+                        hintText="Awesome project"
+                        labelText="Project name"
+                        value={this.state.name}
+                    />
+                    <TextFieldMUI
+                        onChange={this.handleInputChange}
+                        name='customer'
+                        hintText="Name of Customer"
+                        labelText="Customer"
+                        value={this.state.customer}
+                    />
+                    <TextFieldMUI
+                        onChange={this.handleInputChange}
+                        name='deadline'
+                        hintText="DD.MM.YYYY"
+                        labelText="Deadline"
+                        value={this.state.deadline}
+                    />
+
+                        <TextData label="Deadline from now" value={moment(this.state.deadline).fromNow()} />
+                        <TextData label="Project added" value={moment(this.state.addedTS).format("DD.MM.YYYY")} />
+                        <TextData label="Status" value={this.projectStatus} valueClass={this.projectStatus} />
+                </div>
 
                 <div className='flex-container-deadline flex-deadline'>
                     <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
-                    <button onClick={ this.closeDeadline }className='deadline-btn close-btn'>Close Project</button>
+                    <button onClick={ this.closeDeadline }  className='deadline-btn close-btn' disabled={ this.state.closed }>Close Project</button>
                 </div>
                 
                 <div className='status-message-container'>
