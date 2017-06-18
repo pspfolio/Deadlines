@@ -64,7 +64,7 @@ export default class Deadline extends Component {
     }
 
     get projectStatus() {
-        return this.state.closed ? 'closed' : 'working';
+        return this.state.closed ? 'completed' : 'active';
     }
 
     render() {
@@ -100,7 +100,7 @@ export default class Deadline extends Component {
                 </div>
 
                 <div className='flex-container-deadline flex-deadline'>
-                    <button onClick={ this.updateDeadline } className='deadline-btn'>Update Project</button>
+                    <button onClick={ this.updateDeadline } className='deadline-btn' disabled={ this.state.closed }>Update Project</button>
                     <button onClick={ this.closeDeadline }  className='deadline-btn close-btn' disabled={ this.state.closed }>Close Project</button>
                 </div>
                 
