@@ -14,5 +14,7 @@ export default ({ onChange, name, hintText, labelText}) => (
         underlineFocusStyle={ styles.underlineStyle }
         hintText={ hintText }
         floatingLabelText={ labelText }
+        fullWidth={ true }
+        className="test"
     />
 )
