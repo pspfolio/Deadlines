@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TextInput from '../../components/TextInput';
 import PreText from '../../components/PreText';
+import TextFieldMUI from '../../components/TextFieldMUI';
 import { browserHistory } from 'react-router';
 import { login, setToken } from '../../utils/AuthService.js';
 import './login.css';
@@ -51,22 +51,23 @@ export default class LogIn extends Component {
           { this.state.signUpError ? <p className='error'>The email address and/or password you entered was invalid.</p> : null }
           <div className='login-form'>
             <form>
-              <TextInput
-                  label='Username'
+              <TextFieldMUI
+                  labelText='Username'
                   errorMessage='username is required'
-                  placeholder='Jack Bauer'
+                  hintText='Jack Bauer'
                   name='username'
                   onChange={ this.handleInputChange }
-                  type='text'
-                  required={ true } />
-                <TextInput
-                  label='Password'
+                  value={ this.state.username }
+                />
+                <TextFieldMUI
+                  labelText='Password'
                   errorMessage='password is required'
                   name='password'
                   type='password'
                   onChange={ this.handleInputChange }
-                  placeholder='Enter your password'
-                  required={ true } />
+                  hintText='Enter your password'
+                  value={ this.state.password }
+                />
             </form>
           </div>
           <button onClick={ this.handleLogIn } disabled={ buttonDisabled } className='login-btn'>Get Started</button>
@@ -74,3 +75,13 @@ export default class LogIn extends Component {
     )
   }
 }
+
+/*
+                    <TextFieldMUI
+                        onChange={this.handleInputChange}
+                        name='deadline'
+                        hintText="DD.MM.YYYY"
+                        labelText="Deadline"
+                        value={this.state.deadline}
+                    />
+*/
